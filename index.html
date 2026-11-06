@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Clasicos Morandua en Bogota: almacen tradicional familiar de muebles en madera maciza Flor Morado y Linea Deko, ebanisteria artesanal, restauracion y vista en Realidad Aumentada 3D."
+  />
+  <meta name="theme-color" content="#F7F5F0" />
+  <title>Clasicos Morandua | Muebles en Flor Morado, Deko y Restauracion en Bogota</title>
+
+  <!-- Estilos propios Mobile-First Editorial Warm Minimalist -->
+  <link rel="stylesheet" href="./css/styles.css" />
+
+  <!-- Componente oficial ligero para WebAR / 3D (Seccion 5.5 del Proyecto ACA) -->
+  <script
+    type="module"
+    src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"
+  ></script>
+</head>
+<body>
+  <a class="skip-link" href="#contenido-principal">Saltar directamente al contenido principal</a>
+
+  <!-- Cabecera editorial con las 5 secciones exactas exigidas por la guia academica -->
+  <header class="site-header" id="top">
+    <div class="container site-header__inner">
+      <a href="#inicio" class="brand" aria-label="Clasicos Morandua - Ir al inicio">
+        <span class="brand__mark" aria-hidden="true">CM</span>
+        <span class="brand__text">
+          <strong class="brand__title">Clasicos Morandua</strong>
+          <span class="brand__subtitle">Maderas Flor Morado, Deko y Ebanisteria en Bogota</span>
+        </span>
+      </a>
+
+      <button
+        type="button"
+        id="nav-toggle"
+        class="nav-toggle"
+        aria-expanded="false"
+        aria-controls="primary-nav"
+        aria-label="Abrir o cerrar menu de navegacion"
+      >
+        <span class="nav-toggle__label">Menu</span>
+        <span class="nav-toggle__icon" aria-hidden="true"></span>
+      </button>
+
+      <nav id="primary-nav" class="primary-nav" aria-label="Navegacion principal">
+        <ul class="primary-nav__list">
+          <li><a class="primary-nav__link" href="#inicio">Inicio</a></li>
+          <li><a class="primary-nav__link" href="#quienes-somos">Quienes Somos</a></li>
+          <li><a class="primary-nav__link" href="#productos-servicios">Productos y Servicios</a></li>
+          <li><a class="primary-nav__link" href="#ubicacion">Ubicacion</a></li>
+          <li><a class="primary-nav__link primary-nav__link--cta" href="#contacto">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+    <!-- 1. SECCION INICIO -->
+    <section id="inicio" class="hero section" aria-labelledby="hero-heading">
+      <div class="container hero__grid">
+        <div class="hero__content">
+          <p class="eyebrow">Tradicion Familiar Maderera en Bogota D.C.</p>
+          <h1 id="hero-heading" class="hero__title">
+            Ebanisteria autentica en madera maciza Flor Morado, Linea Deko y restauracion de herencia
+          </h1>
+          <p class="hero__lead">
+            En <strong>Clasicos Morandua</strong> unimos el oficio de nuestros maestros ebanistas y
+            talleres satelites de pintura con herramientas de visualizacion 3D y cotizacion asistida,
+            para que cada comedor, alcoba o biblioteca perdure por generaciones.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#productos-servicios" class="btn btn--primary">
+              Explorar Catalogo y Precios
+            </a>
+            <button
+              type="button"
+              id="open-hero-ar-btn"
+              class="btn btn--secondary"
+              aria-haspopup="dialog"
+              aria-controls="ar-modal"
+            >
+              Ver en tu espacio (Realidad Aumentada)
+            </button>
+            <a
+              href="https://wa.me/573000000000?text=Hola%20Clasicos%20Morandua%2C%20deseo%20asesoria%20sobre%20muebles%20en%20Flor%20Morado%2C%20Deko%20o%20Restauracion."
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn--whatsapp"
+            >
+              Hablar por WhatsApp Business
+            </a>
+          </div>
+
+          <dl class="hero__highlights" aria-label="Garantias y diferenciales">
+            <div class="hero__highlight-item">
+              <dt>10 Anos</dt>
+              <dd>Garantia en ensambles de Flor Morado macizo</dd>
+            </div>
+            <div class="hero__highlight-item">
+              <dt>Talleres Propios</dt>
+              <dd>Red satelite de ebanisteria, talla y lacado catalizado</dd>
+            </div>
+            <div class="hero__highlight-item">
+              <dt>WebAR + IA</dt>
+              <dd>Prueba 3D en casa y pre-triaje inmediato por WhatsApp</dd>
+            </div>
+          </dl>
+        </div>
+
+        <aside class="hero__showcase" aria-label="Ficha destacada de ebanisteria">
+          <div class="showcase-card">
+            <div class="showcase-card__header">
+              <span class="badge">Evidencia Secciones 5.5 y 5.9</span>
+              <span class="showcase-card__tag">Madera Secada al Horno</span>
+            </div>
+            <div class="showcase-card__illustration" aria-hidden="true">
+              <svg viewBox="0 0 420 240" class="showcase-card__svg" focusable="false">
+                <rect x="20" y="25" width="380" height="190" rx="16" fill="#8B5A3C" fill-opacity="0.12" />
+                <path
+                  d="M70 170 L70 105 L350 105 L350 170 M105 105 L105 68 L315 68 L315 105 M100 170 L100 198 M320 170 L320 198"
+                  stroke="#8B5A3C"
+                  stroke-width="6"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  fill="none"
+                />
+                <path
+                  d="M115 136 Q210 118 305 136"
+                  stroke="#1C1917"
+                  stroke-width="4"
+                  stroke-linecap="round"
+                  fill="none"
+                />
+              </svg>
+            </div>
+            <h2 class="showcase-card__title">Nobleza del Flor Morado y versatilidad Deko</h2>
+            <p class="showcase-card__text">
+              Seleccionamos vetas naturales con humedad controlada para el clima de Bogota y la Sabana,
+              evitando pandeos o fisuras con el paso de los anos.
+            </p>
+            <div class="showcase-card__footer">
+              <span>Contraste AAA verificado (18px+)</span>
+              <a href="#contacto" class="showcase-card__link">Solicitar visita o cotizacion</a>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 2. SECCION QUIENES SOMOS -->
+    <section id="quienes-somos" class="section section--alt" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">2. Quienes Somos</p>
+          <h2 id="about-heading" class="section__title">
+            Tradicion familiar que articula sala de exhibicion y talleres satelites en Bogota
+          </h2>
+          <p class="section__subtitle">
+            Mas que un almacen comercial, somos una cadena artesanal completa: desde la seleccion del
+            tablon en bruto hasta el lacado final y la entrega asegurada en tu hogar.
+          </p>
+        </div>
+
+        <div class="about-grid">
+          <article class="info-card">
+            <span class="info-card__step">01. Almacen Principal</span>
+            <h3 class="info-card__title">Asesoria Honesta y Muestrario Real</h3>
+            <p class="info-card__text">
+              En nuestra sede fisica en Bogota atendemos de forma personalizada a familias y adultos
+              mayores, mostrando muestras fisicas de vetas en Flor Morado, acabados en Linea Deko y
+              catalogos de tapiceria antifluidos de alto trafico.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="info-card__step">02. Taller Satelite de Ebanisteria</span>
+            <h3 class="info-card__title">Ensamble de Caja, Espigo y Talla</h3>
+            <p class="info-card__text">
+              Nuestros maestros carpinteros trabajan uniones estructurales prensadas en frio, refuerzos
+              internos ocultos y recuperacion de piezas patrimoniales que requieren cirugia en madera
+              maciza.
+            </p>
+          </article>
+
+          <article class="info-card">
+            <span class="info-card__step">03. Taller Satelite de Pintura y Tapizado</span>
+            <h3 class="info-card__title">Cabina de Lacado Catalizado y Acabado Poro Abierto</h3>
+            <p class="info-card__text">
+              Realizamos decapado quimico y manual sin maltratar la fibra original, sellado de poro,
+              entonacion a muestras existentes del cliente y aplicacion de poliuretanos resistentes a la
+              humedad y al uso diario.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. SECCION PRODUCTOS Y SERVICIOS -->
+    <section id="productos-servicios" class="section" aria-labelledby="catalog-heading">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">3. Productos y Servicios</p>
+          <h2 id="catalog-heading" class="section__title">
+            Catalogo interactivo: Linea Flor Morado, Linea Deko y Servicio de Restauracion
+          </h2>
+          <p class="section__subtitle">
+            Filtra en tiempo constante <code>O(1)</code> entre nuestras lineas de fabricacion y casos
+            reales de refaccion. Cada tarjeta permite abrir la vista en Realidad Aumentada 3D o enviar
+            los datos precargados a WhatsApp Business.
+          </p>
+        </div>
+
+        <!-- Barra de filtros accesible con area tactil >= 48x48px -->
+        <div
+          id="catalog-filters"
+          class="filter-bar"
+          role="toolbar"
+          aria-label="Filtrar catalogo por linea de producto o servicio"
+        >
+          <button
+            type="button"
+            class="btn filter-bar__btn is-active"
+            data-filter="todos"
+            aria-pressed="true"
+          >
+            Todo el Catalogo (6)
+          </button>
+          <button
+            type="button"
+            class="btn filter-bar__btn"
+            data-filter="flor-morado"
+            aria-pressed="false"
+          >
+            Linea Flor Morado (2)
+          </button>
+          <button
+            type="button"
+            class="btn filter-bar__btn"
+            data-filter="deko"
+            aria-pressed="false"
+          >
+            Linea Deko (2)
+          </button>
+          <button
+            type="button"
+            class="btn filter-bar__btn"
+            data-filter="restauracion"
+            aria-pressed="false"
+          >
+            Restauracion / Refaccion (2)
+          </button>
+        </div>
+
+        <p id="catalog-status" class="catalog-status" aria-live="polite">
+          Cargando catalogo artesanal...
+        </p>
+
+        <!-- Grilla renderizada mediante DocumentFragment en O(k) -->
+        <div id="catalog-grid" class="catalog-grid" aria-live="polite"></div>
+
+        <!-- Banner demostrativo directo de Realidad Aumentada (Seccion 5.5) -->
+        <aside class="ar-callout" aria-labelledby="ar-callout-title">
+          <div class="ar-callout__content">
+            <span class="badge">Seccion 5.5 - Innovacion WebAR 3D</span>
+            <h3 id="ar-callout-title" class="ar-callout__title">
+              ¿Quieres comprobar como luce la madera antes de fabricar?
+            </h3>
+            <p class="ar-callout__text">
+              Usa nuestro visor interactivo 3D con soporte para camara movil (AR) para rotar, acercar y
+              proyectar una pieza de muestra a escala real en tu comedor o estudio sin instalar
+              aplicaciones externas.
+            </p>
+          </div>
+          <div class="ar-callout__action">
+            <button
+              type="button"
+              class="btn btn--primary js-open-ar-modal"
+              data-model-url="https://modelviewer.dev/shared-assets/models/Chair.glb"
+              data-model-title="Silla Maestra en Flor Morado (Vista 3D / AR)"
+              data-product-title="Muestra Interactiva 3D - Clasicos Morandua"
+            >
+              Ver en tu espacio (Realidad Aumentada)
+            </button>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- 4. SECCION UBICACION -->
+    <section id="ubicacion" class="section section--alt" aria-labelledby="location-heading">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">4. Ubicacion y Logistica</p>
+          <h2 id="location-heading" class="section__title">
+            Sede fisica en Bogota, horarios de atencion y transporte aliado puerta a puerta
+          </h2>
+          <p class="section__subtitle">
+            Visitanos con tranquilidad o agenda la recoleccion de tus muebles para restauracion con
+            nuestro equipo logistico especializado en carga delicada.
+          </p>
+        </div>
+
+        <div class="location-grid">
+          <article class="location-card">
+            <h3 class="location-card__title">Almacen y Sala de Muestras en Bogota</h3>
+            <dl class="location-list">
+              <div class="location-list__item">
+                <dt>Sector y Sede Fisica</dt>
+                <dd>
+                  Distrito Maderero Tradicional (Zona Doce de Octubre / Barrios Unidos), Bogota D.C.,
+                  Colombia. Acceso sencillo en primer piso sin escaleras pronunciadas.
+                </dd>
+              </div>
+              <div class="location-list__item">
+                <dt>Horarios de Atencion</dt>
+                <dd>
+                  Lunes a Sabado: 8:30 AM - 6:00 PM<br />
+                  Domingos y Festivos: 10:00 AM - 3:00 PM
+                </dd>
+              </div>
+              <div class="location-list__item">
+                <dt>Logistica de Transporte Aliado</dt>
+                <dd>
+                  Contamos con furgones carpados aliados equipados con mantas acolchadas y personal de
+                  subida por ascensor o escalera amplia. Cubrimos todas las localidades de Bogota,
+                  Chia, Cajica, Cota, La Calera y Sabana Occidente.
+                </dd>
+              </div>
+            </dl>
+            <div class="location-card__actions">
+              <a
+                href="https://www.openstreetmap.org/?mlat=4.6682&mlon=-74.0785#map=15/4.6682/-74.0785"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn btn--secondary"
+              >
+                Abrir Mapa Referencial de Bogota
+              </a>
+              <a href="#contacto" class="btn btn--primary">
+                Programar Visita o Recogida
+              </a>
+            </div>
+          </article>
+
+          <aside class="location-map-card" aria-label="Esquema logistico de cobertura">
+            <h3 class="location-map-card__title">Ruta del Mueble: Del Taller a tu Hogar</h3>
+            <ol class="logistics-steps">
+              <li>
+                <strong>1. Diagnostico en Almacen o por Foto en WhatsApp:</strong> Definimos medidas,
+                tono de Flor Morado o Deko y presupuesto transparente.
+              </li>
+              <li>
+                <strong>2. Produccion en Talleres Satelites:</strong> Corte, ebanisteria, lijado fino y
+                aplicacion de laca catalizada con control de calidad.
+              </li>
+              <li>
+                <strong>3. Entrega e Instalacion Cuidadosa:</strong> Transporte aliado embalado en
+                pelicula protectora y espuma, dejando el mueble nivelado en tu espacio.
+              </li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. SECCION CONTACTO + ASISTENTE DE PRE-TRIAJE IA -->
+    <section id="contacto" class="section" aria-labelledby="contact-heading">
+      <div class="container">
+        <div class="section__header">
+          <p class="eyebrow">5. Contacto y Pre-Triaje Inteligente</p>
+          <h2 id="contact-heading" class="section__title">
+            Asistente de Cotizacion Rapida (Demo IA) y canales directos de atencion
+          </h2>
+          <p class="section__subtitle">
+            Estructura tu requerimiento en segundos: nuestro asistente clasifica si necesitas fabricar
+            un mueble nuevo o restaurar una pieza familiar y genera en <code>O(1)</code> el mensaje
+            exacto para nuestro WhatsApp Business.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <!-- Widget interactivo de Pre-Triaje IA -->
+          <div class="triage-card">
+            <div class="triage-card__header">
+              <span class="badge">Demo IA - Seccion 5.5</span>
+              <span id="triage-code-badge" class="triage-card__code">TRIAJE-IA-NUEVO</span>
+            </div>
+            <h3 class="triage-card__title">Asistente de Cotizacion Rapida</h3>
+            <p class="triage-card__desc">
+              Completa estos 3 pasos sencillos con botones grandes y letra clara:
+            </p>
+
+            <form id="ai-triage-form" class="triage-form" novalidate>
+              <fieldset class="form-group">
+                <legend class="form-label">1. ¿Que tipo de servicio deseas cotizar?</legend>
+                <div class="radio-grid">
+                  <label class="radio-card">
+                    <input
+                      type="radio"
+                      name="serviceType"
+                      value="Mueble Nuevo"
+                      checked
+                    />
+                    <span class="radio-card__text">Mueble Nuevo a Medida</span>
+                  </label>
+                  <label class="radio-card">
+                    <input
+                      type="radio"
+                      name="serviceType"
+                      value="Restauracion"
+                    />
+                    <span class="radio-card__text">Restauracion / Refaccion</span>
+                  </label>
+                </div>
+              </fieldset>
+
+              <div class="form-group">
+                <label for="triage-wood" class="form-label">
+                  2. Selecciona la linea de madera o acabado preferido:
+                </label>
+                <select id="triage-wood" name="woodType" class="form-control">
+                  <option value="Flor Morado">Madera Maciza Flor Morado (Alta Tradicion)</option>
+                  <option value="Deko">Linea Deko (Funcional y Contemporanea)</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="triage-product" class="form-label">
+                  3. Pieza de interes (ej. Comedor 6 puestos, Cama Queen, Biblioteca):
+                </label>
+                <input
+                  type="text"
+                  id="triage-product"
+                  name="productTitle"
+                  class="form-control"
+                  maxlength="100"
+                  placeholder="Ej. Comedor familiar 6 puestos o Sala clasica a restaurar"
+                  value="Comedor Imperial Sabana (6 Puestos)"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="triage-dimensions" class="form-label">
+                  4. Medidas aproximadas o estado actual del mueble:
+                </label>
+                <input
+                  type="text"
+                  id="triage-dimensions"
+                  name="dimensions"
+                  class="form-control"
+                  maxlength="120"
+                  placeholder="Ej. 180 cm x 100 cm, tono miel calido, entrega en Bogota"
+                  value="180 cm x 100 cm - Tono miel natural"
+                />
+              </div>
+
+              <div class="triage-preview" aria-live="polite">
+                <p class="triage-preview__label">Vista previa del mensaje estructurado por IA:</p>
+                <p id="triage-preview-text" class="triage-preview__body"></p>
+              </div>
+
+              <div class="triage-form__actions">
+                <a
+                  id="triage-whatsapp-link"
+                  href="https://wa.me/573000000000"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn btn--whatsapp btn--full"
+                >
+                  Enviar Cotizacion a WhatsApp Business (+57 300 000 0000)
+                </a>
+              </div>
+            </form>
+          </div>
+
+          <!-- Tarjeta de Canales Comerciales Directos y Redes Meta -->
+          <aside class="contact-channels-card" aria-label="Datos comerciales directos">
+            <h3 class="contact-channels-card__title">Canales Oficiales de Atencion</h3>
+            <p class="contact-channels-card__intro">
+              Si prefieres conversar directamente por telefono, escribirnos un correo electronico o
+              visitar nuestras redes sociales en Meta, aqui tienes nuestros datos verificados:
+            </p>
+
+            <ul class="channel-list">
+              <li class="channel-list__item">
+                <span class="channel-list__label">Linea WhatsApp Business y Telefono</span>
+                <a
+                  href="https://wa.me/573000000000?text=Hola%20Clasicos%20Morandua%2C%20solicito%20informacion%20comercial."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="channel-list__link"
+                >
+                  +57 300 000 0000 (Atencion inmediata)
+                </a>
+              </li>
+              <li class="channel-list__item">
+                <span class="channel-list__label">Correo Electronico Comercial</span>
+                <a
+                  href="mailto:contacto@clasicosmorandua.ejemplo.co?subject=Cotizacion%20Clasicos%20Morandua"
+                  class="channel-list__link"
+                >
+                  contacto@clasicosmorandua.ejemplo.co
+                </a>
+              </li>
+              <li class="channel-list__item">
+                <span class="channel-list__label">Ecosistema de Redes Meta (Catalogo y Reels de Taller)</span>
+                <div class="social-links">
+                  <a
+                    href="https://www.instagram.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn--secondary"
+                    aria-label="Visitar perfil de Instagram en Meta (abre en pestana nueva)"
+                  >
+                    Instagram Oficial (Meta)
+                  </a>
+                  <a
+                    href="https://www.facebook.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn btn--secondary"
+                    aria-label="Visitar pagina de Facebook en Meta (abre en pestana nueva)"
+                  >
+                    Facebook Oficial (Meta)
+                  </a>
+                </div>
+              </li>
+            </ul>
+
+            <div class="senior-accessibility-note">
+              <h4>Compromiso de Accesibilidad</h4>
+              <p>
+                Sitio disenado con tipografia base de 18px, alto contraste AAA (#1C1917 sobre #F7F5F0) y
+                botones amplios de minimo 48x48 pixeles para facilitar la lectura y navegacion de
+                nuestros clientes de todas las edades.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- MODAL ACCESIBLE DE REALIDAD AUMENTADA 3D (<model-viewer>) -->
+  <div
+    id="ar-modal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="ar-modal-title"
+    aria-hidden="true"
+    hidden
+  >
+    <div id="ar-modal-backdrop" class="modal__backdrop"></div>
+    <div class="modal__dialog" role="document">
+      <div class="modal__header">
+        <div>
+          <p class="eyebrow">Seccion 5.5 - Experiencia Inmersiva WebAR</p>
+          <h2 id="ar-modal-title" class="modal__title">
+            Ver en tu espacio (Realidad Aumentada)
+          </h2>
+          <p id="ar-modal-product-name" class="modal__subtitle">
+            Muestra Demostrativa en Flor Morado y Linea Deko
+          </p>
+        </div>
+        <button
+          type="button"
+          id="ar-modal-close"
+          class="btn btn--secondary modal__close-btn"
+          aria-label="Cerrar ventana de Realidad Aumentada"
+        >
+          Cerrar [Esc]
+        </button>
+      </div>
+
+      <div class="modal__body">
+        <model-viewer
+          id="ar-model-viewer"
+          class="ar-viewer"
+          src="https://modelviewer.dev/shared-assets/models/Chair.glb"
+          alt="Modelo 3D demostrativo de mobiliario artesanal Clasicos Morandua"
+          ar
+          ar-modes="webxr scene-viewer quick-look"
+          camera-controls
+          touch-action="pan-y"
+          auto-rotate
+          shadow-intensity="1"
+        >
+          <button slot="ar-button" class="btn btn--primary ar-viewer__slot-btn">
+            Activar Camara y Proyectar en tu Espacio (AR)
+          </button>
+        </model-viewer>
+
+        <p class="modal__instructions">
+          <strong>Instrucciones:</strong> Arrastra con el dedo o el raton para girar el mueble 360
+          grados. En celulares compatibles con ARCore o ARKit, pulsa el boton dentro del visor para
+          ubicarlo sobre el piso real de tu sala.
+        </p>
+      </div>
+
+      <div class="modal__footer">
+        <a
+          id="ar-modal-wa-link"
+          href="https://wa.me/573000000000"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn btn--whatsapp"
+        >
+          Cotizar esta referencia por WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- PIE DE PAGINA -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <strong>Clasicos Morandua</strong>
+        <p>
+          Almacen tradicional familiar de muebles en Flor Morado, Linea Deko y restauracion artesanal en
+          Bogota D.C. Prototipo funcional para las Secciones 5.5 y 5.9 del Proyecto Final ACA de
+          Ingenieria de Sistemas.
+        </p>
+      </div>
+      <div class="site-footer__meta">
+        <p>Contacto sanitizado de demostracion: +57 300 000 0000 | contacto@clasicosmorandua.ejemplo.co</p>
+        <p><a href="#top" class="site-footer__top-link">Volver arriba</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Script principal con ES Modules nativos -->
+  <script type="module" src="./js/main.js"></script>
+</body>
+</html>
