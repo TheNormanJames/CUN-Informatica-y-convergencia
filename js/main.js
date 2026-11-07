@@ -222,7 +222,8 @@ function initAITriageAssistant() {
     waButton.href = result.url;
 
     if (badgeNode) {
-      badgeNode.textContent = result.triageCode;
+      badgeNode.textContent =
+        serviceType === 'Restauracion' ? 'Restauracion y Refaccion' : 'Mueble Nuevo a Medida';
     }
   };
 

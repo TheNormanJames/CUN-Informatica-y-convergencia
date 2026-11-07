@@ -30,19 +30,20 @@ El sistema de diseño traduce la estética editorial de marcas contemporáneas d
 
 ## 3. Jerarquía Tipográfica y Reglas de Puntuación
 
-Inspirada en *ORLA* y *STILL / HOME*, la tipografía se basa en dos familias complementarias:
-1. **Familia Display / Titulares:** *Editorial Serif* (`Cormorant Garamond`, `Playfair Display`, `Georgia`, serif tradicional).
+Inspirada directamente en el lenguaje minimalista y arquitectónico de *ORLA*, la tipografía se basa en dos familias modernas sans-serif:
+1. **Familia Display / Titulares:** *Modern Geometric Sans* (`Outfit`, circular, proporciones arquitectónicas limpias, sin serifs arcaicos).
    - **Regla del Punto Final:** Todos los titulares principales de impacto en el Hero y banners editoriales culminan con un punto ortográfico sobrio (`.`):
-     - *Ejemplos:* `"Objetos para un habitar más sereno."` | `"Madera maciza, tiempos más lentos."` | `"Muebles concebidos para perdurar."`
-   - Tamaño: `2.4rem` a `3.2rem` en escritorio, `1.85rem` a `2.1rem` en móvil.
-   - Altura de línea (`line-height`): Compacta y elegante (`1.15` a `1.22`).
-2. **Familia de Lectura e Interfaz:** *Modern Clean Sans* (`Inter`, `Plus Jakarta Sans`, `-apple-system`, `system-ui`).
-   - Peso regular para párrafos (`400`), semibold para llamadas a la acción (`600`).
+     - *Ejemplos:* `"Objetos para un habitar más sereno."` | `"Comprueba la madera en tu propio espacio."`
+   - Tamaño: `2.6rem` a `3.85rem` en escritorio, `1.95rem` a `2.35rem` en móvil.
+   - Altura de línea (`line-height`): Compacta y contemporánea (`1.08` a `1.15`).
+   - Tracking: `letter-spacing: -0.028em` para dar tensión y aplomo editorial moderno.
+2. **Familia de Lectura e Interfaz:** *Modern Neo-Grotesque Sans* (`Plus Jakarta Sans`).
+   - Peso regular para párrafos (`400`), semibold para llamadas a la acción (`600`), bold (`700`) para etiquetas técnicas de especificación.
    - Tamaño base: `18px` (1.125rem) para garantizar accesibilidad en adultos mayores.
-   - Altura de línea (`line-height`): Muy holgada (`1.65` a `1.8`) para dar aire al texto.
+   - Altura de línea (`line-height`): Holgada (`1.65` a `1.75`) para dar aire al texto.
 3. **Kickers / Eyebrows (Pretítulos):**
-   - Mayúsculas sostenidas (`uppercase`), tamaño reducido (`11px` a `13px`), peso `600`, espaciado de letras expandido (`letter-spacing: 0.18em` a `0.22em`), color `--color-text-muted` o `--color-wood-amber`.
-   - *Ejemplos:* `MATERIALES NOBLES, ESPACIOS EN CALMA.` | `COLECCIÓN DESTACADA` | `SECCIÓN 5.5 - WEBAR 3D`.
+   - Mayúsculas sostenidas (`uppercase`), tamaño reducido (`11px` a `13px`), peso `600`, espaciado de letras expandido (`letter-spacing: 0.22em`), color `--color-text-muted`.
+   - *Ejemplos:* `MADERAS NOBLES · ESPACIOS EN CALMA` | `03. COLECCIÓN DESTACADA` | `VISUALIZACIÓN ESPACIAL`.
 
 ---
 
