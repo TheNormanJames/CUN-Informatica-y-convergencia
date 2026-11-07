@@ -88,9 +88,15 @@ Inspirada en el bloque *LASTING MATERIALS* de *STILL / HOME*:
 ## 5. Aplicación a los Documentos Académicos (Word y PowerPoint)
 
 ### 5.1. Informe APA 7 en Word (`ProyectoFinal_Norman_Jaimes.docx`)
-* **Portada:** Maquetación sobria y espaciosa con títulos en serif clásico, subtítulos espaciados en mayúsculas pequeñas, y márgenes simétricos de `2.54 cm`.
-* **Tablas Académicas Estilizadas:** Cabeceras en carbón profundo (`#1C1917`) con tipografía blanca, filas alternadas en blanco puro (`#FFFFFF`) y lino calizo (`#FAF8F5`), con bordes delgados horizontales en tono piedra (`#E7E2D8`) y sin líneas verticales distractoras.
-* **Recuadros de Captura y Citas Destacadas:** Paneles en arena suave (`#F3EFEA`) con borde izquierdo en acento madera (`#8B5A3C`), tipografía cursiva sobria y espaciado generoso.
+* **Portada:** Maquetación sobria y espaciosa con márgenes simétricos de `2.54 cm` (1 pulgada) y numeración dinámica en el extremo superior derecho.
+* **Tabla de Contenido (Norma APA 7 Estricta):**
+  - En APA 7ª edición, la Tabla de Contenido **no es una tabla de datos**; por lo tanto, **no lleva bordes, no lleva sombreados oscuros de cabecera ni se numera como `Tabla 1`**.
+  - Se estructura como un índice jerárquico limpio con sangría en subniveles, líneas de puntos guía (*dot leaders* `.......`) y números de página alineados a la derecha.
+* **Tablas de Datos (`Tabla 1` a `Tabla 6` bajo Norma APA 7 Estricta):**
+  - Etiqueta en negrita (`Tabla 1`) en una línea independiente y título descriptivo en *cursiva* en la línea inmediatamente inferior.
+  - **Regla de las 3 líneas horizontales:** Únicamente borde superior de tabla, borde inferior del encabezado y borde inferior de tabla. Cero bordes verticales y cero cuadrículas internas pesadas.
+  - Cierre con párrafo `Nota.` en cursiva al pie de cada tabla.
+* **Figuras con Capturas Reales Incrustadas (`Figura 1` a `Figura 3`):** Numeradas y tituladas en formato APA 7 con las capturas reales del sitio web incrustadas directamente y su respectiva nota descriptiva.
 
 ### 5.2. Presentación Ejecutiva en PowerPoint (`ProyectoFinal_Norman_Jaimes.pptx`)
 * **Lienzo Panorámico (16:9):** Fondo uniforme en lino cálido (`#FAF8F5`).
@@ -109,3 +115,4 @@ Inspirada en el bloque *LASTING MATERIALS* de *STILL / HOME*:
 - [x] Espaciado de letras generoso en todos los textos auxiliares (`letter-spacing >= 0.15em`).
 - [x] Flechas integradas (`->`) en botones y enlaces de conversión.
 - [x] Coherencia 100% simétrica entre la web, el documento Word y las diapositivas de PowerPoint.
+

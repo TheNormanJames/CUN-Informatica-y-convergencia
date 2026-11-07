@@ -77,3 +77,4 @@ flowchart TD
 2. **Implementación Atómica:** Realizar cambios coordinados en la interfaz web y en el script generador de documentos para mantener la simetría visual y argumentativa.
 3. **Pase por QA Adversarial:** Ejecutar la suite de tests en terminal y la verificación de salida de los documentos.
 4. **Registro en Control de Versiones:** Mantener commits limpios y descriptivos en la rama `main` listos para sincronización con GitHub Pages.
+

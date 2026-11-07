@@ -49,6 +49,7 @@ export const CATALOG_ITEMS = Object.freeze([
     hasAR: true,
     arModelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
     arModelTitle: 'Silla Maestro Comedor Imperial en Flor Morado (Vista 3D / AR)',
+    imageUrl: './assets/images/comedor-flormorado.jpg',
     visualTheme: 'wood-warm',
     swatches: Object.freeze(['#C49A6C', '#8B5A3C', '#E8E3DA'])
   }),
@@ -66,6 +67,7 @@ export const CATALOG_ITEMS = Object.freeze([
     hasAR: true,
     arModelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
     arModelTitle: 'Poltrona y Modulo de Alcoba en Flor Morado (Vista 3D / AR)',
+    imageUrl: './assets/images/cama-santafe.jpg',
     visualTheme: 'wood-deep',
     swatches: Object.freeze(['#8B5A3C', '#5C4033', '#DDD7CA'])
   }),
@@ -83,6 +85,7 @@ export const CATALOG_ITEMS = Object.freeze([
     hasAR: true,
     arModelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
     arModelTitle: 'Silla de Lectura Linea Deko (Vista 3D / AR)',
+    imageUrl: './assets/images/biblioteca-deko.jpg',
     visualTheme: 'deko-sand',
     swatches: Object.freeze(['#D7BA89', '#C49A6C', '#5C4033'])
   }),
@@ -100,6 +103,7 @@ export const CATALOG_ITEMS = Object.freeze([
     hasAR: false,
     arModelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
     arModelTitle: 'Mobiliario Auxiliar Linea Deko (Vista 3D / AR)',
+    imageUrl: './assets/images/mesa-centro-bacata.jpg',
     visualTheme: 'deko-warm',
     swatches: Object.freeze(['#D7BA89', '#8B5A3C'])
   }),
@@ -119,6 +123,7 @@ export const CATALOG_ITEMS = Object.freeze([
     hasAR: false,
     arModelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
     arModelTitle: 'Muestra de Acabado Restaurado (Vista 3D / AR)',
+    imageUrl: './assets/images/restauracion-comedor.jpg',
     visualTheme: 'restore-craft',
     swatches: Object.freeze(['#5C4033', '#C49A6C', '#3D523D'])
   }),
@@ -138,6 +143,7 @@ export const CATALOG_ITEMS = Object.freeze([
     hasAR: true,
     arModelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
     arModelTitle: 'Poltrona Clasica Restaurada (Vista 3D / AR)',
+    imageUrl: './assets/images/restauracion-poltrona.jpg',
     visualTheme: 'restore-warm',
     swatches: Object.freeze(['#C49A6C', '#8B5A3C', '#E8E3DA'])
   })

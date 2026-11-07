@@ -12,59 +12,34 @@ import {
 } from '../data/catalog.js';
 
 /**
- * Crea un nodo SVG decorativo accesible que ilustra la pieza o taller sin depender de imagenes externas rotas.
+ * Crea el contenedor fotografico de cada pieza del catalogo con carga diferida (lazy loading)
+ * y microinteraccion de zoom suave al pasar el cursor.
  *
- * Complejidad Temporal: O(1), construccion determinista de un nodo vectorial estatico.
- * Complejidad Espacial: O(1), tamano constante del subarbol SVG.
+ * Complejidad Temporal: O(1), construccion determinista de un nodo de imagen estatico.
+ * Complejidad Espacial: O(1), tamano constante del subarbol DOM.
  *
- * @param {string} visualTheme - Identificador visual del producto.
+ * @param {Object} item - Objeto de producto o servicio del catalogo.
  * @returns {HTMLElement} Contenedor visual de la tarjeta.
  */
-export function createProductVisualBanner(visualTheme = 'wood-warm') {
+export function createProductVisualBanner(item) {
+  const visualTheme = item && item.visualTheme ? item.visualTheme : 'wood-warm';
   const banner = document.createElement('div');
   banner.className = `product-card__visual product-card__visual--${visualTheme}`;
-  banner.setAttribute('aria-hidden', 'true');
 
-  const svgNS = 'http://www.w3.org/2000/svg';
-  const svg = document.createElementNS(svgNS, 'svg');
-  svg.setAttribute('viewBox', '0 0 360 180');
-  svg.setAttribute('class', 'product-card__svg');
-  svg.setAttribute('focusable', 'false');
+  const img = document.createElement('img');
+  img.className = 'product-card__img';
+  img.src = (item && item.imageUrl) || './assets/images/comedor-flormorado.jpg';
+  img.alt = (item && item.title) || 'Pieza de mobiliario artesanal Clasicos Morandua';
+  img.loading = 'lazy';
+  img.decoding = 'async';
 
-  const bgRect = document.createElementNS(svgNS, 'rect');
-  bgRect.setAttribute('x', '24');
-  bgRect.setAttribute('y', '28');
-  bgRect.setAttribute('width', '312');
-  bgRect.setAttribute('height', '124');
-  bgRect.setAttribute('rx', '12');
-  bgRect.setAttribute('fill', 'currentColor');
-  bgRect.setAttribute('fill-opacity', '0.12');
-
-  const framePath = document.createElementNS(svgNS, 'path');
-  framePath.setAttribute(
-    'd',
-    'M68 128 L68 78 L292 78 L292 128 M92 78 L92 52 L268 52 L268 78 M88 128 L88 148 M272 128 L272 148'
-  );
-  framePath.setAttribute('stroke', 'currentColor');
-  framePath.setAttribute('stroke-width', '5');
-  framePath.setAttribute('stroke-linecap', 'round');
-  framePath.setAttribute('stroke-linejoin', 'round');
-  framePath.setAttribute('fill', 'none');
-
-  const grainLine = document.createElementNS(svgNS, 'path');
-  grainLine.setAttribute('d', 'M100 102 Q180 88 260 102');
-  grainLine.setAttribute('stroke', 'currentColor');
-  grainLine.setAttribute('stroke-width', '3');
-  grainLine.setAttribute('stroke-linecap', 'round');
-  grainLine.setAttribute('fill', 'none');
-
-  svg.append(bgRect, framePath, grainLine);
-  banner.appendChild(svg);
+  banner.appendChild(img);
   return banner;
 }
 
 /**
  * Construye el nodo DOM `<article>` para un item del catalogo sin usar innerHTML en bucles.
+ * Diseno inspirado en galerias editoriales de mobiliario (ORLA y STILL / HOME).
  *
  * Complejidad Temporal: O(1), cantidad fija de nodos DOM creados por tarjeta.
  * Complejidad Espacial: O(1), estructura DOM acotada por tarjeta.
@@ -74,11 +49,11 @@ export function createProductVisualBanner(visualTheme = 'wood-warm') {
  */
 export function createProductCardNode(item) {
   const article = document.createElement('article');
-  article.className = 'product-card';
+  article.className = 'product-card reveal-on-scroll is-visible';
   article.dataset.productId = item.id;
   article.dataset.category = item.category;
 
-  const visualBanner = createProductVisualBanner(item.visualTheme);
+  const visualBanner = createProductVisualBanner(item);
 
   const badgeSpan = document.createElement('span');
   badgeSpan.className = 'product-card__badge';
@@ -102,11 +77,18 @@ export function createProductCardNode(item) {
   const arrowIcon = document.createElement('span');
   arrowIcon.className = 'product-card__arrow';
   arrowIcon.setAttribute('aria-hidden', 'true');
-  arrowIcon.textContent = '->';
+  arrowIcon.textContent = '\u2192';
 
   headerRow.append(title, arrowIcon);
 
-  // Swatches visuales inspirados en STILL / HOME
+  const metaRow = document.createElement('div');
+  metaRow.className = 'product-card__meta-row';
+
+  const priceTag = document.createElement('p');
+  priceTag.className = 'product-card__price';
+  priceTag.textContent = item.priceReference;
+  metaRow.appendChild(priceTag);
+
   if (Array.isArray(item.swatches) && item.swatches.length > 0) {
     const swatchesContainer = document.createElement('div');
     swatchesContainer.className = 'product-card__swatches';
@@ -118,16 +100,14 @@ export function createProductCardNode(item) {
       dot.style.backgroundColor = item.swatches[s];
       swatchesContainer.appendChild(dot);
     }
-    body.append(categoryTag, headerRow, swatchesContainer);
-  } else {
-    body.append(categoryTag, headerRow);
+    metaRow.appendChild(swatchesContainer);
   }
 
   const description = document.createElement('p');
   description.className = 'product-card__description';
   description.textContent = item.description;
 
-  body.append(description);
+  body.append(categoryTag, headerRow, metaRow, description);
 
   if (item.beforeState && item.afterState) {
     const comparisonBox = document.createElement('div');
@@ -154,8 +134,8 @@ export function createProductCardNode(item) {
 
   const specs = [
     ['Madera / Proceso', item.woodType],
-    ['Medidas / Tiempo', item.dimensions],
-    ['Respaldo', item.warranty]
+    ['Dimensiones', item.dimensions],
+    ['Garantia', item.warranty]
   ];
 
   for (let i = 0; i < specs.length; i += 1) {
@@ -164,7 +144,7 @@ export function createProductCardNode(item) {
     row.className = 'product-card__spec-row';
 
     const dt = document.createElement('dt');
-    dt.textContent = `${label}:`;
+    dt.textContent = label;
 
     const dd = document.createElement('dd');
     dd.textContent = value;
@@ -172,10 +152,6 @@ export function createProductCardNode(item) {
     row.append(dt, dd);
     specsList.appendChild(row);
   }
-
-  const priceTag = document.createElement('p');
-  priceTag.className = 'product-card__price';
-  priceTag.textContent = item.priceReference;
 
   const actions = document.createElement('div');
   actions.className = 'product-card__actions';
@@ -192,12 +168,12 @@ export function createProductCardNode(item) {
   });
 
   const quoteLink = document.createElement('a');
-  quoteLink.className = 'btn btn--whatsapp product-card__btn';
+  quoteLink.className = 'btn btn--primary product-card__btn';
   quoteLink.href = waUrl;
   quoteLink.target = '_blank';
   quoteLink.rel = 'noopener noreferrer';
   quoteLink.setAttribute('aria-label', `Cotizar por WhatsApp: ${item.title}`);
-  quoteLink.textContent = 'Cotizar en WhatsApp ->';
+  quoteLink.textContent = 'Cotizar en WhatsApp \u2192';
 
   const arButton = document.createElement('button');
   arButton.type = 'button';
@@ -206,10 +182,10 @@ export function createProductCardNode(item) {
   arButton.dataset.modelTitle = item.arModelTitle || item.title;
   arButton.dataset.productTitle = item.title;
   arButton.setAttribute('aria-label', `Ver en tu espacio en Realidad Aumentada 3D: ${item.title}`);
-  arButton.textContent = 'Ver en tu espacio (AR 3D) ->';
+  arButton.textContent = 'Ver en AR 3D \u2192';
 
   actions.append(quoteLink, arButton);
-  body.append(specsList, priceTag, actions);
+  body.append(specsList, actions);
   article.append(visualBanner, body);
 
   return article;
@@ -255,9 +231,8 @@ export function renderFilteredCatalog(
 
   if (statusNode) {
     const label = CATEGORY_LABELS[normalizedCategory] || CATEGORY_LABELS[CATEGORIES.ALL];
-    statusNode.textContent = `Mostrando ${matchedItems.length} opciones en "${label}" (consulta O(1) en indice Map).`;
+    statusNode.textContent = `Mostrando ${matchedItems.length} piezas en "${label}"`;
   }
 
   return matchedItems.length;
 }
-

@@ -1,6 +1,7 @@
 /**
  * @fileoverview Punto de entrada principal de Clasicos Morandua.
- * Orquesta navegacion accesible, filtros de catalogo O(1), modal WebAR 3D y asistente de pre-triaje IA.
+ * Orquesta navegacion accesible, filtros de catalogo O(1), modal WebAR 3D,
+ * asistente de pre-triaje IA y microinteracciones fisicas de aparicion suave.
  */
 
 import {
@@ -35,6 +36,10 @@ function initMobileNavigation() {
   navMenu.addEventListener('click', (event) => {
     const link = event.target.closest('a');
     if (link) {
+      const allLinks = navMenu.querySelectorAll('.primary-nav__link');
+      for (let i = 0; i < allLinks.length; i += 1) {
+        allLinks[i].classList.toggle('is-active', allLinks[i] === link);
+      }
       closeMenu();
     }
   });
@@ -111,7 +116,7 @@ function initWebARModal() {
     }
 
     if (modalTitle) {
-      modalTitle.textContent = 'Ver en tu espacio (Realidad Aumentada)';
+      modalTitle.textContent = 'Ver en tu espacio (Realidad Aumentada).';
     }
 
     if (modalProductLabel) {
@@ -151,6 +156,7 @@ function initWebARModal() {
   document.addEventListener('click', (event) => {
     const trigger = event.target.closest('.js-open-ar-modal');
     if (trigger) {
+      event.preventDefault();
       openModal({
         modelUrl: trigger.dataset.modelUrl || 'https://modelviewer.dev/shared-assets/models/Chair.glb',
         modelTitle: trigger.dataset.modelTitle,
@@ -231,10 +237,39 @@ function initAITriageAssistant() {
   updateTriageOutput();
 }
 
+/**
+ * Inicializa microinteracciones fisicas de aparicion al hacer scroll usando IntersectionObserver.
+ */
+function initScrollReveal() {
+  const elements = document.querySelectorAll('.reveal-on-scroll');
+  if (!('IntersectionObserver' in window)) {
+    for (let i = 0; i < elements.length; i += 1) {
+      elements[i].classList.add('is-visible');
+    }
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (let i = 0; i < entries.length; i += 1) {
+        if (entries[i].isIntersecting) {
+          entries[i].target.classList.add('is-visible');
+          observer.unobserve(entries[i].target);
+        }
+      }
+    },
+    { threshold: 0.08, rootMargin: '0px 0px -24px 0px' }
+  );
+
+  for (let i = 0; i < elements.length; i += 1) {
+    observer.observe(elements[i]);
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
   initMobileNavigation();
   initCatalogFiltering();
   initWebARModal();
   initAITriageAssistant();
+  initScrollReveal();
 });
-
