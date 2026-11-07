@@ -19,3 +19,8 @@ node_modules/
 ~$*
 .~lock.*
 
+# Caché de recortes y previsualizaciones temporales
+.cache_crops/
+*_preview.png
+test_*.*
+
