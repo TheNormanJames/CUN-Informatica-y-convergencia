@@ -133,8 +133,8 @@ test('Fase 1 y 3: Generacion correcta, estructurada y sanitizada de enlaces de c
   });
 
   assert.equal(restorationTriage.triageCode, 'TRIAJE-IA-RESTAURACION');
-  assert.ok(restorationTriage.messagePreview.includes('Restauracion / Refaccion'));
-  assert.ok(restorationTriage.messagePreview.includes('Linea Deko'));
+  assert.ok(restorationTriage.messagePreview.includes('Restauración / Refacción'));
+  assert.ok(restorationTriage.messagePreview.includes('Línea Deko'));
 
   const sanitizedFallback = sanitizeInputText('   <>   ', 'Valor por defecto');
   assert.equal(sanitizedFallback, 'Valor por defecto');

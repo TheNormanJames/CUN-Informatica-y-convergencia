@@ -108,11 +108,13 @@ function initWebARModal() {
   const openModal = ({ modelUrl, modelTitle, productTitle }) => {
     lastFocusedElement = document.activeElement;
 
-    if (modelViewer && modelUrl) {
-      if (modelViewer.getAttribute('src') !== modelUrl) {
-        modelViewer.setAttribute('src', modelUrl);
+    const targetUrl = modelUrl || './assets/models/chair.glb';
+    if (modelViewer) {
+      if (modelViewer.getAttribute('src') !== targetUrl) {
+        modelViewer.setAttribute('src', targetUrl);
       }
-      modelViewer.setAttribute('alt', modelTitle || 'Modelo 3D en madera maciza de Clasicos Morandua');
+      modelViewer.setAttribute('poster', './assets/images/ar-poster.jpg');
+      modelViewer.setAttribute('alt', modelTitle || 'Modelo 3D en madera maciza de Clásicos Morandúa');
     }
 
     if (modalTitle) {
@@ -121,7 +123,7 @@ function initWebARModal() {
 
     if (modalProductLabel) {
       modalProductLabel.textContent =
-        productTitle || 'Muestra Demostrativa en Flor Morado y Linea Deko';
+        productTitle || 'Muestra Demostrativa en Flor Morado y Línea Deko';
     }
 
     if (modalWaLink) {
@@ -158,7 +160,7 @@ function initWebARModal() {
     if (trigger) {
       event.preventDefault();
       openModal({
-        modelUrl: trigger.dataset.modelUrl || 'https://modelviewer.dev/shared-assets/models/Chair.glb',
+        modelUrl: trigger.dataset.modelUrl || './assets/models/chair.glb',
         modelTitle: trigger.dataset.modelTitle,
         productTitle: trigger.dataset.productTitle
       });
@@ -168,8 +170,8 @@ function initWebARModal() {
   if (openHeroArBtn) {
     openHeroArBtn.addEventListener('click', () => {
       openModal({
-        modelUrl: 'https://modelviewer.dev/shared-assets/models/Chair.glb',
-        modelTitle: 'Silla Maestra en Flor Morado (Demostracion WebAR 3D)',
+        modelUrl: './assets/models/chair.glb',
+        modelTitle: 'Silla Maestra en Flor Morado (Demostración WebAR 3D)',
         productTitle: 'Silla Maestra Comedor Imperial - Flor Morado'
       });
     });
@@ -223,7 +225,7 @@ function initAITriageAssistant() {
 
     if (badgeNode) {
       badgeNode.textContent =
-        serviceType === 'Restauracion' ? 'Restauracion y Refaccion' : 'Mueble Nuevo a Medida';
+        serviceType === 'Restauracion' ? 'Restauración y Refacción' : 'Mueble Nuevo a Medida';
     }
   };
 

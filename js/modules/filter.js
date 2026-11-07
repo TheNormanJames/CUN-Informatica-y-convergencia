@@ -29,7 +29,7 @@ export function createProductVisualBanner(item) {
   const img = document.createElement('img');
   img.className = 'product-card__img';
   img.src = (item && item.imageUrl) || './assets/images/comedor-flormorado.jpg';
-  img.alt = (item && item.title) || 'Pieza de mobiliario artesanal Clasicos Morandua';
+  img.alt = (item && item.title) || 'Pieza de mobiliario artesanal Clásicos Morandúa';
   img.loading = 'lazy';
   img.decoding = 'async';
 
@@ -122,7 +122,7 @@ export function createProductCardNode(item) {
     const afterP = document.createElement('p');
     afterP.className = 'product-card__comparison-item product-card__comparison-item--after';
     const afterStrong = document.createElement('strong');
-    afterStrong.textContent = 'Despues: ';
+    afterStrong.textContent = 'Después: ';
     afterP.append(afterStrong, document.createTextNode(item.afterState));
 
     comparisonBox.append(beforeP, afterP);
@@ -135,7 +135,7 @@ export function createProductCardNode(item) {
   const specs = [
     ['Madera / Proceso', item.woodType],
     ['Dimensiones', item.dimensions],
-    ['Garantia', item.warranty]
+    ['Garantía', item.warranty]
   ];
 
   for (let i = 0; i < specs.length; i += 1) {
@@ -178,7 +178,7 @@ export function createProductCardNode(item) {
   const arButton = document.createElement('button');
   arButton.type = 'button';
   arButton.className = 'btn btn--secondary product-card__btn js-open-ar-modal';
-  arButton.dataset.modelUrl = item.arModelUrl;
+  arButton.dataset.modelUrl = item.localModelUrl || item.arModelUrl;
   arButton.dataset.modelTitle = item.arModelTitle || item.title;
   arButton.dataset.productTitle = item.title;
   arButton.setAttribute('aria-label', `Ver en tu espacio en Realidad Aumentada 3D: ${item.title}`);
