@@ -49,3 +49,4 @@ El proyecto utiliza el corredor nativo de Node.js (`node:test` y `node:assert/st
 ```bash
 node --test tests/catalog.test.mjs
 ```
+

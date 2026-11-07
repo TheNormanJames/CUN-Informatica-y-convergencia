@@ -139,3 +139,4 @@ test('Fase 1 y 3: Generacion correcta, estructurada y sanitizada de enlaces de c
   const sanitizedFallback = sanitizeInputText('   <>   ', 'Valor por defecto');
   assert.equal(sanitizedFallback, 'Valor por defecto');
 });
+

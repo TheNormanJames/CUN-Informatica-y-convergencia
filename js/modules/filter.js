@@ -92,15 +92,42 @@ export function createProductCardNode(item) {
   categoryTag.className = 'product-card__category';
   categoryTag.textContent = item.categoryLabel;
 
+  const headerRow = document.createElement('div');
+  headerRow.className = 'product-card__header-row';
+
   const title = document.createElement('h3');
   title.className = 'product-card__title';
   title.textContent = item.title;
+
+  const arrowIcon = document.createElement('span');
+  arrowIcon.className = 'product-card__arrow';
+  arrowIcon.setAttribute('aria-hidden', 'true');
+  arrowIcon.textContent = '->';
+
+  headerRow.append(title, arrowIcon);
+
+  // Swatches visuales inspirados en STILL / HOME
+  if (Array.isArray(item.swatches) && item.swatches.length > 0) {
+    const swatchesContainer = document.createElement('div');
+    swatchesContainer.className = 'product-card__swatches';
+    swatchesContainer.setAttribute('aria-label', 'Muestras de acabado y material');
+
+    for (let s = 0; s < item.swatches.length; s += 1) {
+      const dot = document.createElement('span');
+      dot.className = 'product-card__swatch-dot';
+      dot.style.backgroundColor = item.swatches[s];
+      swatchesContainer.appendChild(dot);
+    }
+    body.append(categoryTag, headerRow, swatchesContainer);
+  } else {
+    body.append(categoryTag, headerRow);
+  }
 
   const description = document.createElement('p');
   description.className = 'product-card__description';
   description.textContent = item.description;
 
-  body.append(categoryTag, title, description);
+  body.append(description);
 
   if (item.beforeState && item.afterState) {
     const comparisonBox = document.createElement('div');
@@ -170,7 +197,7 @@ export function createProductCardNode(item) {
   quoteLink.target = '_blank';
   quoteLink.rel = 'noopener noreferrer';
   quoteLink.setAttribute('aria-label', `Cotizar por WhatsApp: ${item.title}`);
-  quoteLink.textContent = 'Cotizar en WhatsApp';
+  quoteLink.textContent = 'Cotizar en WhatsApp ->';
 
   const arButton = document.createElement('button');
   arButton.type = 'button';
@@ -179,7 +206,7 @@ export function createProductCardNode(item) {
   arButton.dataset.modelTitle = item.arModelTitle || item.title;
   arButton.dataset.productTitle = item.title;
   arButton.setAttribute('aria-label', `Ver en tu espacio en Realidad Aumentada 3D: ${item.title}`);
-  arButton.textContent = 'Ver en tu espacio (AR 3D)';
+  arButton.textContent = 'Ver en tu espacio (AR 3D) ->';
 
   actions.append(quoteLink, arButton);
   body.append(specsList, priceTag, actions);
@@ -233,3 +260,4 @@ export function renderFilteredCatalog(
 
   return matchedItems.length;
 }
+
