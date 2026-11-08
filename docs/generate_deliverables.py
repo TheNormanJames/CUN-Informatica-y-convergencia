@@ -4,13 +4,13 @@
 Script generador y validador QA del Proyecto Final ACA - Informática y Convergencia Tecnológica (TI010)
 Corporacion Unificada Nacional de Educacion Superior (CUN)
 Estudiante: Norman Eduardo Jaimes Mora
-Organizacion caso de estudio: Clásicos Morandúa (Bogotá D.C.)
+Organización caso de estudio: Clásicos Morandúa (Bogotá D.C.)
 
 Genera:
 1. ACA/docs/ProyectoFinal_Norman_Jaimes.docx (Normas APA 7 estrictas: Tabla de Contenido con puntos guia sin bordes,
    Tablas 1 a 6 con solo tres líneas horizontales APA 7, notas al pie y capturas reales incrustadas).
 2. ACA/docs/ProyectoFinal_Norman_Jaimes.pptx (10 diapositivas 16:9 Editorial Warm Minimalist inspiradas en ORLA & STILL / HOME
-   con fotografia real incrustada, tipografía editorial y notas de orador).
+   con fotografía real incrustada, tipografía editorial y notas de orador).
 """
 
 import os
@@ -249,10 +249,10 @@ def add_apa7_table(doc, table_num, table_title, headers, rows, note_text=None):
     return table
 
 
-def add_apa7_figure_with_capture(doc, fig_num, fig_title, marker_code, description, image_path=None, width_inches=5.8):
+def add_apa7_figure_with_capture(doc, fig_num, fig_title, description, image_path=None, width_inches=5.8):
     """
-    Inserta una Figura bajo formato APA 7 estricto (Figura X en negrita, titulo en cursiva,
-    imagen real incrustada si existe + marcador [INSERTAR CAPTURA X] requerido por la rúbrica y Nota al pie).
+    Inserta una Figura bajo formato APA 7 estricto (Figura X en negrita, título en cursiva,
+    imagen real incrustada y Nota al pie descriptiva profesional).
     """
     p_fnum = doc.add_paragraph()
     p_fnum.paragraph_format.space_before = Pt(12)
@@ -294,12 +294,6 @@ def add_apa7_figure_with_capture(doc, fig_num, fig_title, marker_code, descripti
     r_nl.font.name = "Arial"
     r_nl.font.size = Pt(9.5)
     r_nl.font.color.rgb = RGBColor(0x1C, 0x19, 0x17)
-
-    r_mk = p_note.add_run(f"{marker_code} - ")
-    r_mk.bold = True
-    r_mk.font.name = "Arial"
-    r_mk.font.size = Pt(9.5)
-    r_mk.font.color.rgb = RGBColor(0x8B, 0x5A, 0x3C)
 
     r_desc = p_note.add_run(description)
     r_desc.font.name = "Arial"
@@ -479,11 +473,11 @@ def generate_docx(output_path, screenshots_dir):
     # --------------------------------------------------------------------------
     add_heading_1(doc, "Tabla de Contenido")
     toc_entries = [
-        ("1.", "Introducción y Objetivos (Objetivo General y Especificos)", "3", False),
-        ("1.1.", "Objetivo General y Objetivos Especificos", "3", True),
+        ("1.", "Introducción y Objetivos (Objetivo General y Específicos)", "3", False),
+        ("1.1.", "Objetivo General y Objetivos Específicos", "3", True),
         ("2.", "Presentación de la Organización: Clásicos Morandúa (Sección 5.1)", "4", False),
         ("3.", "Identificación del Problema o Necesidad Operativa (Sección 5.2)", "5", False),
-        ("4.", "Propuesta de TIC e Identidad Digital: Habeas Data y Reputacion (Sección 5.3)", "6", False),
+        ("4.", "Propuesta de TIC e Identidad Digital: Habeas Data y Reputación (Sección 5.3)", "6", False),
         ("5.", "Propuesta de Ciberseguridad: Tríada CIA, MFA y Regla 3-2-1 (Sección 5.4)", "8", False),
         ("6.", "Aplicación de Tecnologías Emergentes: IA en WhatsApp y WebAR 3D (Sección 5.5)", "10", False),
         ("7.", "Almacenamiento y Organización en la Nube: Google Drive y Roles (Sección 5.6)", "12", False),
@@ -507,7 +501,7 @@ def generate_docx(output_path, screenshots_dir):
         doc,
         "El sector tradicional de fabricación y restauración de mobiliario en madera en Bogotá D.C. "
         "enfrenta una brecha estructural entre la excelencia artesanal de sus talleres y la precariedad "
-        "de sus procesos administrativos y comerciales. Microempresas familiares con decadas de "
+        "de sus procesos administrativos y comerciales. Microempresas familiares con décadas de "
         "experiencia en maderas nobles dependen aun de talonarios de papel, llamadas telefonicas "
         "aisladas y recomendaciones voz a voz, lo cual limita su alcance comercial y expone su "
         "operación a perdidas de información critica. El presente proyecto de la asignatura "
@@ -532,12 +526,12 @@ def generate_docx(output_path, screenshots_dir):
         "Disenar una propuesta integral de transformación digital para el almacén de muebles "
         "Clásicos Morandúa en Bogotá D.C., integrando herramientas de tecnologias de la información "
         "y las comunicaciones (TIC), identidad digital, ciberseguridad basada en la Tríada CIA, "
-        "tecnologias emergentes (Inteligencia Artificial y Realidad Aumentada WebAR), almacénamiento "
+        "tecnologías emergentes (Inteligencia Artificial y Realidad Aumentada WebAR), almacénamiento "
         "estructurado en la nube, trabajo colaborativo en linea, estrategia sostenible en redes "
         "sociales y un prototipo funcional de sitio web responsivo con enfoque UX/UI accesible."
     )
 
-    add_heading_2(doc, "1.2. Objetivos Especificos")
+    add_heading_2(doc, "1.2. Objetivos Específicos")
     add_bullet_item(
         doc,
         "Diagnosticar la desconexión operativa: ",
@@ -555,13 +549,13 @@ def generate_docx(output_path, screenshots_dir):
     add_bullet_item(
         doc,
         "Establecer controles de ciberseguridad accesibles: ",
-        "Aplicar la Tríada CIA mediante autenticacion multifactor (MFA) de un toque con Google Prompt "
+        "Aplicar la Tríada CIA mediante autenticación multifactor (MFA) de un toque con Google Prompt "
         "adaptada a adultos mayores, frases de contraseña robustas, copias de seguridad bajo la regla "
         "3-2-1 y descarte físico seguro de recibos antiguos."
     )
     add_bullet_item(
         doc,
-        "Integrar tecnologias emergentes e infraestructura Cloud: ",
+        "Integrar tecnologías emergentes e infraestructura Cloud: ",
         "Implementar un flujo de pre-triaje con Inteligencia Artificial hacia WhatsApp Business, "
         "visualizacion 3D a escala real con WebAR (<model-viewer>), un árbol jerárquico de 4 carpetas "
         "en Google Drive con control de permisos por rol y tableros colaborativos en Google Sheets."
@@ -582,7 +576,7 @@ def generate_docx(output_path, screenshots_dir):
         doc,
         "Clásicos Morandúa es una microempresa familiar tradicional ubicada en Bogotá D.C., "
         "dedicada a la fabricación, comercializacion y restauración artesanal de mobiliario para el "
-        "hogar y estudios profesionales. La organizacion es administrada directamente por sus "
+        "hogar y estudios profesionales. La organización es administrada directamente por sus "
         "propietarios fundadores (adultos mayores con más de veinticinco años de experiencia en el "
         "comercio maderero bogotano), quienes atienden personalmente la sala de exhibición y "
         "coordinan la producción con artesanos especializados."
@@ -622,8 +616,8 @@ def generate_docx(output_path, screenshots_dir):
     )
 
     org_rows = [
-        ["Nombre de la organizacion", "Clásicos Morandúa"],
-        ["Tipo de organizacion", "Microempresa familiar tradicional (Comercio y manufactura artesanal por encargo)"],
+        ["Nombre de la organización", "Clásicos Morandúa"],
+        ["Tipo de organización", "Microempresa familiar tradicional (Comercio y manufactura artesanal por encargo)"],
         ["Ubicación geográfica", "Distrito Maderero Tradicional (Zona Doce de Octubre / Barrios Unidos), Bogotá D.C."],
         ["Línea 1: Madera Flor Morado", "Comedores imperiales de 6 y 8 puestos, camas Queen/King y bifes en madera maciza secada al horno con 10 años de garantía estructural."],
         ["Línea 2: Línea Deko", "Bibliotecas modulares, escritorios de estudio y mesas de centro funcionales en maderas estabilizadas y enchapados naturales con 5 años de garantía."],
@@ -634,7 +628,7 @@ def generate_docx(output_path, screenshots_dir):
         doc,
         1,
         "Ficha técnica y portafolio comercial de Clásicos Morandúa (Sección 5.1)",
-        ["Atributo Organizacional", "Descripcion Aplicada a Clásicos Morandúa"],
+        ["Atributo Organizaciónal", "Descripcion Aplicada a Clásicos Morandúa"],
         org_rows,
         note_text="Elaboracion propia a partir del levantamiento operativo de Clásicos Morandúa en Bogotá D.C."
     )
@@ -673,7 +667,7 @@ def generate_docx(output_path, screenshots_dir):
         "Clásicos Morandúa carece de sitio web, ficha verificada en mapas y catálogo digital "
         "organizado. Cuando un cliente potencial solicita una cotización de restauración o de un "
         "comedor en Flor Morado, los propietarios deben explicar desde cero por telefono que datos "
-        "necesitan (medidas del espacio, tipo de madera y fotografias del estado actual), perdiendo "
+        "necesitan (medidas del espacio, tipo de madera y fotografías del estado actual), perdiendo "
         "ventas frente a comercios que responden con catalogos claros e inmediatos."
     )
     add_body_paragraph(
@@ -692,7 +686,7 @@ def generate_docx(output_path, screenshots_dir):
     add_heading_1(doc, "4. Propuesta de TIC e Identidad Digital (Sección 5.3)")
     add_body_paragraph(
         doc,
-        "La construccion de la identidad digital de una organizacion no consiste simplemente en "
+        "La construccion de la identidad digital de una organización no consiste simplemente en "
         "abrir perfiles aislados, sino en proyectar una huella coherente, verificable y ética en "
         "el ciberespacio (Cabero & Llorente, 2013). Para Clásicos Morandúa, la identidad digital "
         "debe reflejar exactamente los valores de su almacén físico: maestria en maderas nobles, "
@@ -710,7 +704,7 @@ def generate_docx(output_path, screenshots_dir):
     add_body_paragraph(
         doc,
         "De acuerdo con Vera Navas (2021), la gestión estratégica de las TIC en las pequenas "
-        "organizaciones exige delimitar con rigor que activos informativos son de dominio publico "
+        "organizaciónes exige delimitar con rigor que activos informativos son de dominio publico "
         "para atraer clientes y cuales constituyen información privada protegida bajo el regimen "
         "colombiano de Habeas Data (Ley Estatutaria 1581 de 2012). En la Tabla 2 se establece la "
         "matriz de gobernanza de datos de Clásicos Morandúa."
@@ -719,7 +713,7 @@ def generate_docx(output_path, screenshots_dir):
     privacy_rows = [
         [
             "Catálogo y Especificaciones Técnicas",
-            "Fotografias propias de comedores en Flor Morado y Deko, medidas estandar, tiempos estimados de fabricación (12 a 18 dias habiles) y años de garantía.",
+            "Fotografías propias de comedores en Flor Morado y Deko, medidas estandar, tiempos estimados de fabricación (12 a 18 dias habiles) y años de garantía.",
             "Costos internos de compra de madera en bruto por bloque, tarifas netas pactadas por obra con el maestro ebanista y el maestro pintor."
         ],
         [
@@ -729,7 +723,7 @@ def generate_docx(output_path, screenshots_dir):
         ],
         [
             "Datos de Clientes y Domicilios (Habeas Data)",
-            "Testimonios generales y fotografias del Antes y Despues del mueble restaurado (previa autorizacion verbal o escrita del cliente, sin mostrar placas ni fachadas).",
+            "Testimonios generales y fotografías del Antes y Después del mueble restaurado (previa autorizacion verbal o escrita del cliente, sin mostrar placas ni fachadas).",
             "Nombres completos, cedulas, direcciones de residencia para entrega en camión, telefonos privados, extractos de transferencias bancarias y saldos pendientes."
         ]
     ]
@@ -744,20 +738,19 @@ def generate_docx(output_path, screenshots_dir):
 
     add_body_paragraph(
         doc,
-        "Etica y reputacion digital: Clásicos Morandúa adopta una política de transparencia "
+        "Etica y reputación digital: Clásicos Morandúa adopta una política de transparencia "
         "absoluta en su comunicación digital (Cabero & Llorente, 2013). Se prohibe publicar "
-        "fotografias descargadas de bancos internacionales o catalogos ajenos haciendolas pasar por "
+        "fotografías descargadas de bancos internacionales o catalogos ajenos haciendolas pasar por "
         "fabricación propia, asi como prometer tiempos de entrega irreales. Toda solicitud recibida "
         "en WhatsApp Business incluye un aviso breve de autorizacion de tratamiento de datos "
-        "personales exclusivamente para fines de cotización, recoleccion y despacho del mobiliario."
+        "personales exclusivamente para fines de cotización, recolección y despacho del mobiliario."
     )
 
     add_apa7_figure_with_capture(
         doc,
         1,
-        "Identidad digital y Hero editorial del sitio web de Clásicos Morandúa en escritorio (1280x800)",
-        "[INSERTAR CAPTURA 1]",
-        "Evidencia del prototipo funcional desplegado bajo estetica Warm Organic Minimalist inspirada en ORLA y STILL / HOME (ACA/assets/screenshots/desktop-1280x800.png).",
+        "Interfaz principal del sitio web comercial de Clásicos Morandúa",
+        "Interfaz del sitio web oficial de Clásicos Morandúa visualizada en navegador de escritorio.",
         image_path=os.path.join(screenshots_dir, "desktop-1280x800.png"),
         width_inches=5.8
     )
@@ -770,7 +763,7 @@ def generate_docx(output_path, screenshots_dir):
         doc,
         "La digitalizacion de una microempresa familiar conlleva riesgos ciberneticos y fisicos "
         "que pueden paralizar la operación si no se mitigan desde el diseño. Como expone Vega "
-        "Briceño (2021), la seguridad de la información en entornos organizacionales debe estructurarse "
+        "Briceño (2021), la seguridad de la información en entornos organizaciónales debe estructurarse "
         "sobre la Tríada CIA (Confidencialidad, Integridad y Disponibilidad), complementada con "
         "controles preventivos frente a ataques de ingeniería social (Gonzalez, 2020) y arquitecturas "
         "de verificación continua o Zero Trust (Smith & Doe, 2021)."
@@ -832,64 +825,57 @@ def generate_docx(output_path, screenshots_dir):
     )
 
     # --------------------------------------------------------------------------
-    # 6. SECCION 5.5: APLICACION DE TECNOLOGIAS EMERGENTES
+    # 6. SECCIÓN 5.5: APLICACIÓN DE TECNOLOGÍAS EMERGENTES
     # --------------------------------------------------------------------------
     add_heading_1(doc, "6. Aplicación de Tecnologías Emergentes (Sección 5.5)")
     add_body_paragraph(
         doc,
-        "Siguiendo a Johnson (2021), la adopcion de tecnologias emergentes en las pequenas empresas "
-        "solo genera retorno cuando resuelve fricciones concretas del proceso de compra. En "
-        "Clásicos Morandúa se implementan dos tecnologias emergentes integradas directamente en el "
-        "prototipo web funcional construido para el negocio: Inteligencia Artificial aplicada al "
-        "triaje comercial en WhatsApp Business y Realidad Aumentada WebAR con modelos 3D a escala "
-        "real 1:1."
+        "Siguiendo a Johnson (2021), la adopción de tecnologías emergentes en las microempresas familiares "
+        "resulta efectiva cuando atiende problemas reales de la atención al cliente y agiliza la toma de decisiones. "
+        "Para Clásicos Morandúa se integraron dos soluciones directas y fáciles de usar: un asistente de cotización "
+        "asistido para WhatsApp Business y un visor interactivo de Realidad Aumentada (WebAR 3D) en escala real."
     )
 
-    add_heading_2(doc, "6.1. Inteligencia Artificial en WhatsApp Business para Triaje de Cotizaciónes")
+    add_heading_2(doc, "6.1. Asistente de Cotización para WhatsApp Business")
     add_body_paragraph(
         doc,
-        "Uno de los mayores desgastes para los propietarios del almacén es atender decenas de "
-        "mensajes ambiguos en WhatsApp ('¿Cuanto vale arreglar un comedor?' o '¿A como las camas?'). "
-        "Para solucionarlo, se implemento un Asistente de Pre-Triaje de Cotización Rápida asistido "
-        "por reglas de IA y plantillas inteligentes en WhatsApp Business. Antes de iniciar el chat, "
-        "el asistente captura cuatro variables estructuradas: (1) Tipo de requerimiento "
-        "[TRIAJE-IA-NUEVO para fabricación a medida o TRIAJE-IA-RESTAURACION para refaccion]; "
-        "(2) Linea de madera seleccionada [Flor Morado Macizo o Línea Deko]; (3) Pieza de interes; "
-        "y (4) Medidas aproximadas del espacio o estado actual del mueble."
+        "En la operación diaria del almacén, uno de los mayores desgastes para los fundadores es responder a diario "
+        "mensajes incompletos en WhatsApp, tales como '¿Cuánto cuesta un mueble?' o '¿A cómo arreglar una mesa?'. "
+        "Responder estos mensajes de forma manual requería varias llamadas o mensajes de vuelta para averiguar qué tipo "
+        "de madera deseaba la persona, las medidas requeridas o el estado actual de la pieza. Para resolver esta dificultad, "
+        "se integró en la página web un asistente de cotización que ayuda al cliente a estructurar su solicitud antes de "
+        "abrir la conversación en WhatsApp Business."
     )
     add_body_paragraph(
         doc,
-        "En tiempo constante O(1), el modulo genera un mensaje codificado y sanitizado que llega "
-        "al WhatsApp Business del almacén listo para que el propietario o el maestro ebanista "
-        "entreguen un presupuesto certero en minutos, reduciendo en mas de un 60% el tiempo de "
-        "indagación preliminar."
+        "El cliente selecciona en un formulario sencillo si necesita un mueble nuevo o un servicio de restauración, "
+        "la madera de su preferencia (Flor Morado macizo o Línea Deko), el producto específico y las medidas aproximadas de su espacio. "
+        "Con estos datos, el asistente arma un mensaje claro, completo y ordenado que se transfiere directamente al chat de "
+        "WhatsApp Business del negocio (+57 300 000 0000). De este modo, los artesanos y propietarios reciben toda la información "
+        "básica desde el primer contacto, lo que les permite entregar un estimado de precio en minutos y con total claridad."
     )
 
-    add_heading_2(doc, "6.2. Realidad Aumentada WebAR con Modelos 3D Escala 1:1 en el Hogar")
+    add_heading_2(doc, "6.2. Visor 3D y Realidad Aumentada para Validación en el Hogar")
     add_body_paragraph(
         doc,
-        "En la compra de muebles de alto valor (como un Comedor Imperial de 6 puestos en Flor "
-        "Morado o una Biblioteca Modular Deko), la principal objecion del cliente bogotano es la "
-        "incertidumbre espacial: dudar si el mueble cabra comodamente en su sala o si el tono de "
-        "la madera armonizara con su piso. Mediante el componente estandar <model-viewer> de Google "
-        "integrado en el sitio web de Clásicos Morandúa, el cliente puede abrir desde su telefono "
-        "movil un visor 3D interactivo y pulsar 'Activar Cámara y Proyectar en tu Espacio (AR)'."
+        "Al comprar muebles de madera maciza de gran tamaño (como un comedor de seis puestos o una mesa de centro), "
+        "los clientes con frecuencia dudan si el mueble va a caber en su sala o si el tono de la madera combinará con sus pisos. "
+        "Para despejar estas dudas sin exigir visitas previas al domicilio, el sitio web incorpora un visor tridimensional "
+        "con soporte de Realidad Aumentada (WebAR) basado en el componente estándar <model-viewer>."
     )
     add_body_paragraph(
         doc,
-        "Sin instalar aplicaciones adicionales, el navegador utiliza WebXR, ARCore (Android) o "
-        "Quick Look (iOS) para proyectar el modelo tridimensional (.glb) en escala real 1:1 sobre "
-        "el suelo físico del comedor o estudio del cliente (Johnson, 2021). Esto eleva la tasa de "
-        "conversión comercial y evita devoluciones o inconformidades por dimensiones al momento "
-        "de la entrega en el camión aliado."
+        "Sin tener que descargar ninguna aplicación pesada ni crear cuentas, el comprador abre el modelo desde el navegador de su "
+        "celular y pulsa el botón de proyección en el espacio. El teléfono proyecta el mueble en tres dimensiones sobre el piso real "
+        "de la sala o comedor a escala 1:1 (Johnson, 2021). Así, la familia comprueba de inmediato si el tamaño es el adecuado para su sala, "
+        "lo que brinda tranquilidad al momento de mandar a fabricar y previene devoluciones costosas durante la entrega en el camión aliado."
     )
 
     add_apa7_figure_with_capture(
         doc,
         2,
-        "Asistente de Cotización Rápida (Demo IA) en vista movil (390x844) y sección dividida WebAR 3D",
-        "[INSERTAR CAPTURA 2]",
-        "Evidencia del widget de pre-triaje con IA hacia WhatsApp Business en resolucion movil (ACA/assets/screenshots/mobile-contacto-ia-390x844.png).",
+        "Cotizador interactivo y sección de Realidad Aumentada 3D",
+        "Asistente de cotización para WhatsApp Business visualizado en dispositivo móvil.",
         image_path=os.path.join(screenshots_dir, "mobile-contacto-ia-390x844.png"),
         width_inches=3.1
     )
@@ -922,14 +908,14 @@ def generate_docx(output_path, screenshots_dir):
         doc,
         "02_Gestion_de_Pedidos: ",
         "Contiene el tablero operativo en tiempo real de ordenes activas, subcarpetas por mes con "
-        "las ordenes de trabajo en PDF, planos de medidas especiales y fotografias del estado "
+        "las ordenes de trabajo en PDF, planos de medidas especiales y fotografías del estado "
         "inicial de los muebles recibidos para restauración."
     )
     add_bullet_item(
         doc,
         "03_Catalogo_Fotografico: ",
-        "Repositorio organizado por líneas (Flor_Morado, Linea_Deko y Casos_Antes_y_Despues) con "
-        "las fotografias en alta resolucion tomadas con luz natural y los archivos 3D (.glb) "
+        "Repositorio organizado por líneas (Flor_Morado, Linea_Deko y Casos_Antes_y_Después) con "
+        "las fotografías en alta resolucion tomadas con luz natural y los archivos 3D (.glb) "
         "utilizados en la web y en redes sociales."
     )
     add_bullet_item(
@@ -1036,7 +1022,7 @@ def generate_docx(output_path, screenshots_dir):
         "En lugar de bailes, efectos complejos o guiones artificiales, la comunicación explota el "
         "mayor activo competitivo del negocio: la belleza visual de la madera real y la "
         "transformacion tangible de los muebles restaurados. Se establece una frecuencia sostenible "
-        "de exactamente 2 publicaciones fotograficas semanales (Martes y Viernes), tomadas con "
+        "de exactamente 2 publicaciones fotográficas semanales (Martes y Viernes), tomadas con "
         "el telefono movil en orientacion vertical/cuadrada junto a luz natural de ventana, sin "
         "filtros que alteren el tono real de la laca."
     )
@@ -1044,12 +1030,12 @@ def generate_docx(output_path, screenshots_dir):
     social_rows = [
         [
             "Martes: Magia del Taller y Nobleza de la Madera",
-            "Fotografia en primer plano de la veta natural del Flor Morado, ensambles en caja y espigo o muebles en Línea Deko recien salidos de cabina de pintura.",
+            "Fotografía en primer plano de la veta natural del Flor Morado, ensambles en caja y espigo o muebles en Línea Deko recien salidos de cabina de pintura.",
             "Instagram + Facebook Page (Publicacion cruzada automatica en Meta)",
             "Educar al comprador sobre la diferencia entre madera maciza secada al horno y aglomerados desechables, justificando el valor del mueble."
         ],
         [
-            "Viernes: Caso Real Antes y Despues (Restauración)",
+            "Viernes: Caso Real Antes y Después (Restauración)",
             "Carrusel de 2 o 3 fotos comparando como ingreso una silla o comedor antiguo deteriorado y como quedo tras pasar por los talleres satélites.",
             "Instagram + Facebook + Catálogo e Historias de WhatsApp Business",
             "Activar la nostalgia y confianza de familias bogotanas que desean recuperar muebles de herencia con llamado directo a cotizar por WhatsApp."
@@ -1065,82 +1051,73 @@ def generate_docx(output_path, screenshots_dir):
     )
 
     # --------------------------------------------------------------------------
-    # 10. SECCION 5.9: PROPUESTA DE SITIO WEB Y UX/UI
+    # 10. SECCIÓN 5.9: PROPUESTA DE SITIO WEB Y UX/UI
     # --------------------------------------------------------------------------
-    add_heading_1(doc, "10. Propuesta de Sitio Web y UX/UI (Sección 5.9)")
+    add_heading_1(doc, "10. Propuesta de Sitio Web y Experiencia de Usuario - UX/UI (Sección 5.9)")
     add_body_paragraph(
         doc,
-        "Como evidencia práctica central de esta propuesta, se construyo y valido el prototipo "
-        "funcional completo del sitio web de Clásicos Morandúa empleando HTML5 semántico, CSS "
-        "moderno con Custom Properties y Vanilla JavaScript ES Modules, listo para servirse de "
-        "forma gratuita y permanente en GitHub Pages. Siguiendo los principios de usabilidad y "
-        "accesibilidad universal expuestos por Fernandez (2022) y Martinez (2022), el sitio adopta "
-        "la estetica Editorial Warm Minimalist (inspirada en referentes de diseño de mobiliario "
-        "de autor como ORLA y STILL / HOME), pensada especificamente para facilitar la lectura "
-        "y navegación de adultos mayores y familias."
+        "Para solucionar la falta de visibilidad en Internet identificada en el diagnóstico inicial (Sección 5.2), "
+        "se diseñó y puso en marcha un sitio web funcional, moderno y ligero, desarrollado con HTML5 semántico, "
+        "hojas de estilo CSS y JavaScript modular sin depender de librerías pesadas, alojado de manera gratuita en "
+        "GitHub Pages. Con el fin de facilitar la navegación a adultos mayores y familias, el sitio se organizó bajo "
+        "una estructura de página única (One-Page) con menú de acceso rápido a cinco secciones fundamentales (Fernandez, 2022; Martinez, 2022)."
     )
 
-    add_heading_2(doc, "10.1. Arquitectura de las 5 Vistas Navegables")
+    add_heading_2(doc, "10.1. Estructura de las 5 Secciones en Página Única")
     add_bullet_item(
         doc,
         "1. Inicio (#inicio): ",
-        "Hero editorial con fotografia arquitectonica de gran formato, tipografía serif Cormorant "
-        "Garamond combinada con Plus Jakarta Sans, propuesta de valor en madera maciza Flor Morado "
-        "y Deko, indicadores de garantía (10 años) y tres llamados a la accion inmediatos."
+        "Presentación visual con fotografía destacada de mobiliario, propuesta de valor en madera maciza Flor Morado "
+        "y Línea Deko, indicador de garantía de 10 años y botón principal para solicitar asesoría directa."
     )
     add_bullet_item(
         doc,
         "2. Quiénes Somos (#quienes-somos): ",
-        "Relato transparente de la cadena artesanal en tres pasos: (01) Almacén Principal de "
-        "asesoria y muestrario, (02) Taller Satélite de Ebanistería y (03) Taller Satélite de "
-        "Pintura Catalizada y Tapizado, acompanado de una sección dividida de materiales con "
-        "fotografias macro de veta de madera y lino natural."
+        "Reseña histórica del taller familiar y explicación del trabajo coordinado entre el almacén de atención y los "
+        "talleres de ebanistería y pintura catalizada, acompañada de fotografías de materiales y vetas naturales."
     )
     add_bullet_item(
         doc,
-        "3. Productos y Servicios (#productos-servicios): ",
-        "Catálogo interactivo con 6 referencias representativas con fotografia real, muestras de "
-        "acabado (swatches) y precios claros, filtrables en tiempo constante O(1) mediante un "
-        "indice precomputado en memoria (Map CATEGORY_INDEX) y renderizado en O(k) con "
-        "DocumentFragment entre Línea Flor Morado, Línea Deko y Restauración Antes/Después, "
-        "mas el bloque dividido de Realidad Aumentada 3D con <model-viewer>."
+        "3. Catálogo de Productos y Servicios (#productos-servicios): ",
+        "Muestra de seis referencias de muebles con fotos reales y precios de referencia. Incorpora filtros rápidos por botón "
+        "que permiten cambiar de inmediato entre Línea Flor Morado, Línea Deko y Restauración sin recargar la página, "
+        "además de la opción para ver el mueble en Realidad Aumentada 3D."
     )
     add_bullet_item(
         doc,
         "4. Ubicación (#ubicacion): ",
-        "Tarjeta informativa de la sede física en el Distrito Maderero de Bogotá, horarios de "
-        "atención de lunes a domingo y ruta numerada (01, 02, 03) de logistica asegurada mediante "
-        "camión aliado."
+        "Datos de la sede física en el Distrito Maderero de Bogotá, horarios de atención presencial y detalle del "
+        "proceso de transporte y entrega cuidadosa con el camión aliado del almacén."
     )
     add_bullet_item(
         doc,
         "5. Contacto (#contacto): ",
-        "Integra el Asistente de Cotización Rápida (Demo IA) que estructura el mensaje de pre-triaje "
-        "hacia WhatsApp Business (+57 300 000 0000), correo comercial sanitizado "
-        "(contacto@clasicosmorandua.ejemplo.co) y enlaces directos a Instagram y Facebook en Meta."
+        "Espacio de atención directa que reúne el asistente para enviar la cotización estructurada a WhatsApp Business "
+        "(+57 300 000 0000), correo electrónico comercial y enlaces a las redes sociales del negocio."
     )
 
-    add_heading_2(doc, "10.2. Criterios UX/UI, Diseño Responsivo y Accesibilidad AAA")
+    add_heading_2(doc, "10.2. Accesibilidad para Adultos Mayores y Diseño Responsivo")
     add_body_paragraph(
         doc,
-        "De acuerdo con Fernandez (2022), la interfaz debe adaptarse a las capacidades visuales y "
-        "motrices del usuario final. Se aplico una paleta hexadecimal estricta con fondo primario "
-        "lino calido (#F7F5F0), tarjetas en blanco puro (#FFFFFF), texto primario en carbón "
-        "profundo (#1C1917, logrando una relacion de contraste de 16.4:1 que supera ampliamente el "
-        "nivel WCAG AAA), acento en madera Flor Morado (#8B5A3C) y verde de confirmacion para "
-        "WhatsApp (#1F5E3B). El tamaño tipografico base se fijo en 18px (1.125rem), todos los "
-        "botones e inputs poseen un area tactil minima de 48px x 48px con estados :focus-visible "
-        "nitidos, microinteracciones suaves (850ms cubic-bezier) y maquetacion Mobile-First en CSS "
-        "Grid sin desbordamiento horizontal (overflow-x: 0) en moviles (390px), tablets (768px) y "
-        "escritorio (1280px)."
+        "Teniendo en cuenta que muchos clientes del negocio son personas adultas y adultos mayores, se cuidó al máximo la legibilidad (Fernandez, 2022). "
+        "Se aplicó una paleta de alto contraste con fondo cálido lino (#F7F5F0) y texto en carbón oscuro (#1C1917), "
+        "logrando un contraste de 16:1 que supera con creces el estándar de accesibilidad visual WCAG AAA. "
+        "La tipografía sans-serif se configuró en un tamaño grande y cómodo de 18 píxeles con buen espacio entre líneas, "
+        "lo que permite una lectura descansada tanto en pantallas de celular como en computadores."
+    )
+    add_body_paragraph(
+        doc,
+        "De igual manera, los botones de acción, pestañas de catálogo y campos de contacto cuentan con un tamaño amplio "
+        "(mínimo 48 por 48 píxeles) con bordes resaltados al seleccionarlos, facilitando que personas con menor destreza táctil "
+        "puedan pulsar sin equivocarse. La página se adapta automáticamente a teléfonos móviles, tabletas y computadores de escritorio, "
+        "ofreciendo una experiencia fluida, clara y sin desbordamientos horizontales de pantalla."
     )
 
     add_apa7_figure_with_capture(
         doc,
         3,
-        "Catálogo interactivo O(1) con fotografia real y muestras de acabado en Desktop (1280x800)",
-        "[INSERTAR CAPTURA 3]",
-        "Evidencia de la grilla de 3 columnas con fotografia de mobiliario real, swatches de madera/tela y filtrado en tiempo constante O(1) (ACA/assets/screenshots/desktop-catalogo-1280x800.png).",
+        "Catálogo interactivo de productos y acabados en maderas nobles",
+        "Catálogo interactivo de mobiliario con visualización de maderas y acabados en entorno de escritorio.",
         image_path=os.path.join(screenshots_dir, "desktop-catalogo-1280x800.png"),
         width_inches=5.8
     )
@@ -1172,7 +1149,7 @@ def generate_docx(output_path, screenshots_dir):
             "Permite aprender directamente de las especificaciones oficiales de la industria, desarrollando criterio tecnico autonomo."
         ],
         [
-            "3. Organizacion y Gestión del Conocimiento",
+            "3. Organización y Gestión del Conocimiento",
             "Obsidian (notas enlazadas en Markdown con metodo Zettelkasten) y Google Drive estructurado por semestres y proyectos.",
             "Conectar apuntes de lectura bibliografica, fragmentos de codigo reutilizables, listas de chequeo de seguridad y borradores academicos.",
             "Transforma la información dispersa en una base de conocimiento personal consultable al instante durante toda la carrera de Ingeniería de Sistemas."
@@ -1211,7 +1188,7 @@ def generate_docx(output_path, screenshots_dir):
     )
     add_bullet_item(
         doc,
-        "Conclusión 1 - Aprendizaje alcanzado y mejora organizacional mediante convergencia tecnológica: ",
+        "Conclusión 1 - Aprendizaje alcanzado y mejora organizaciónal mediante convergencia tecnológica: ",
         "Durante el desarrollo del proyecto se comprendio que la transformación digital exitosa "
         "no depende de adquirir software complejo ni servidores costosos, sino de alinear con "
         "precision herramientas accesibles al flujo real de las personas. En Clásicos Morandúa, "
@@ -1229,7 +1206,7 @@ def generate_docx(output_path, screenshots_dir):
         "base controles de seguridad de la información fundamentados en la Tríada CIA (Vega Briceño, "
         "2021) y el cumplimiento estricto de Habeas Data (Vera Navas, 2021). Para una microempresa "
         "administrada por adultos mayores, la ciberseguridad debe ser simultaneamente rigurosa y "
-        "ergonomica: la implementacion de autenticacion multifactor (MFA) de un toque mediante "
+        "ergonomica: la implementacion de autenticación multifactor (MFA) de un toque mediante "
         "Google Prompt, el uso de frases de contraseña memorables, el respaldo hibrido bajo la "
         "regla 3-2-1 (Drive + USB física) y la trituración física de recibos antiguos protegen el "
         "patrimonio informativo del negocio frente al phishing y la pérdida de datos sin bloquear "
@@ -1261,12 +1238,12 @@ def generate_docx(output_path, screenshots_dir):
         "Cabero, J., & Llorente, M. C. (2013). La aplicacion del juicio de expertos como técnica de evaluacion de las tecnologias de la información y comunicación (TIC). Revista de Tecnología de Información y Comunicación en Educacion, 7(2), 11-22.",
         "Fernandez, A. (2022). Diseño de interfaces web accesibles y experiencia de usuario (UX/UI) centrada en el adulto mayor. Editorial Sintesis.",
         "Gonzalez, R. (2020). Prevención de ataques de ingeniería social y gestión de contraseñas seguras en entornos empresariales. Revista Latinoamericana de Ciberseguridad, 5(1), 34-49.",
-        "Hernandez, L. (2021). Herramientas de trabajo colaborativo en la nube para la optimizacion de procesos en microempresas. Fondo Editorial Universitario.",
+        "Hernandez, L. (2021). Herramientas de trabajo colaborativo en la nube para la optimización de procesos en microempresas. Fondo Editorial Universitario.",
         "Johnson, M. (2021). Emerging technologies in retail: Artificial Intelligence triage and Web-based Augmented Reality (WebAR) for customer conversión. Journal of Digital Commerce and Innovation, 9(3), 112-128.",
         "Martinez, C. (2022). Arquitectura de aplicaciones web estaticas, rendimiento frontend y despliegue continuo en repositorios abiertos. Ediciones Técnicas de Ingeniería.",
-        "Ramirez, P. (2022). Gestión documental y almacénamiento seguro en la nube mediante Google Drive para pequenas organizaciones. Revista Iberoamericana de Sistemas de Información, 14(2), 65-80.",
+        "Ramirez, P. (2022). Gestión documental y almacénamiento seguro en la nube mediante Google Drive para pequenas organizaciónes. Revista Iberoamericana de Sistemas de Información, 14(2), 65-80.",
         "Smith, J., & Doe, A. (2021). Zero Trust architecture and multi-factor authentication (MFA) usability in small family businesses. International Journal of Information Security Practice, 12(4), 201-215.",
-        "Vega Briceño, E. (2021). Seguridad de la información y aplicacion práctica de la tríada CIA en la transformación digital organizacional. Revista Ingeniería y Desarrollo Tecnológico, 18(1), 45-62.",
+        "Vega Briceño, E. (2021). Seguridad de la información y aplicacion práctica de la tríada CIA en la transformación digital organizaciónal. Revista Ingeniería y Desarrollo Tecnológico, 18(1), 45-62.",
         "Vera Navas, G. (2021). Tecnologias de la información y la comunicación (TIC), identidad digital y proteccion de datos personales en el comercio electronico. Revista Cientifica Dominio de las Ciencias, 7(3), 890-908."
     ]
 
@@ -1401,7 +1378,7 @@ def add_editorial_slide_body(slide, bullets, callout_title, callout_items, badge
     - Columna izquierda (7.25 pulgadas): Tarjeta blanca amplia y balanceada verticalmente.
       Cada punto tiene titulo destacado (15.5 pt Outfit negrita) y descripcion (13.5 pt Plus Jakarta Sans),
       con espaciado vertical amplio que llena el contenedor de forma natural (cero vacios blancos al fondo).
-    - Columna derecha (4.45 pulgadas): Fotografia recortada proporcionalmente (cero estiramiento)
+    - Columna derecha (4.45 pulgadas): Fotografía recortada proporcionalmente (cero estiramiento)
       o panel de arquitectura con fichas de datos balanceadas.
     """
     left_card = slide.shapes.add_shape(
@@ -1620,7 +1597,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
         },
         # SLIDE 2
         {
-            "kicker": "Sección 5.1 - Contexto Organizacional",
+            "kicker": "Sección 5.1 - Contexto Organizaciónal",
             "h1": "Una red artesanal distribuida en 3 sedes físicas produce muebles eternos en Flor Morado y Deko",
             "image": os.path.join(images_dir, "comedor-flormorado.jpg"),
             "bullets": [
@@ -1686,7 +1663,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
         },
         # SLIDE 4
         {
-            "kicker": "Secciones 5.6 y 5.7 - Almacenamiento Cloud y Colaboracion",
+            "kicker": "Secciones 5.6 y 5.7 - Almacenamiento Cloud y Colaboración",
             "h1": "Google Drive y un tablero semáforo en Sheets sincronizan el almacén con ambos talleres",
             "image": None,
             "bullets": [
@@ -1737,7 +1714,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
                     "Verificación de llamadas bancarias y destrucción en trituradora de talonarios antiguos ya digitalizados (Vega Briceño, 2021; Gonzalez, 2020)."
                 ),
             ],
-            "badge": "TRIADA CIA + ZERO TRUST",
+            "badge": "TRÍADA CIA Y SEGURIDAD",
             "callout_title": "Regla Backup 3-2-1",
             "callout_items": [
                 ("3 Copias", "Datos operativos y contables"),
@@ -1755,7 +1732,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
         # SLIDE 6
         {
             "kicker": "Secciones 5.3 y 5.8 - Identidad Digital y Redes Sociales",
-            "h1": "Una estrategia fotografica realista en Meta y Habeas Data consolidan la reputacion digital",
+            "h1": "Una estrategia fotográfica realista en Meta y Habeas Data consolidan la reputación digital",
             "image": os.path.join(images_dir, "restauracion-poltrona.jpg"),
             "bullets": [
                 (
@@ -1764,91 +1741,90 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
                 ),
                 (
                     "Cadencia Sostenible de 2 Fotos Semanales",
-                    "Sin exigir edicion compleja de video: Martes de vetas/taller y Viernes de casos Antes y Despues en Instagram y Facebook."
+                    "Sin exigir edicion compleja de video: Martes de vetas/taller y Viernes de casos Antes y Después en Instagram y Facebook."
                 ),
                 (
                     "Etica Digital y Transparencia Artesanal",
-                    "Fotografia real con luz natural sin usar imagenes ajenas de Internet, fortaleciendo la confianza familiar (Cabero & Llorente, 2013)."
+                    "Fotografía real con luz natural sin usar imagenes ajenas de Internet, fortaleciendo la confianza familiar (Cabero & Llorente, 2013)."
                 ),
             ],
             "badge": "ECOSISTEMA META",
             "callout_title": "Parrilla Sostenible",
             "callout_items": [
                 ("Martes", "Foto detalle veta Flor Morado / Deko"),
-                ("Viernes", "Carrusel Antes y Despues restaurado"),
+                ("Viernes", "Carrusel Antes y Después restaurado"),
                 ("Privacidad", "Cumplimiento Ley 1581 Habeas Data"),
             ],
             "notes": (
                 "En identidad digital y redes sociales evitamos proponer videos complejos que los "
-                "propietarios no puedan mantener. Establecemos dos publicaciones fotograficas reales "
+                "propietarios no puedan mantener. Establecemos dos publicaciones fotográficas reales "
                 "por semana en Instagram y Facebook mostrando la veta del Flor Morado y casos de "
-                "Antes y Despues, protegiendo siempre los datos privados del cliente bajo Habeas Data."
+                "Antes y Después, protegiendo siempre los datos privados del cliente bajo Habeas Data."
             ),
         },
         # SLIDE 7
         {
             "kicker": "Sección 5.5 - Aplicación de Tecnologías Emergentes",
-            "h1": "El pre-triaje con IA en WhatsApp y la Realidad Aumentada WebAR aceleran el cierre de ventas",
+            "h1": "El asistente de WhatsApp y la Realidad Aumentada WebAR aceleran el cierre de ventas",
             "image": os.path.join(screenshots_dir, "desktop-webar-ubicacion-1280x800.png"),
             "bullets": [
                 (
-                    "Asistente IA de Pre-Triaje Comercial",
-                    "Captura servicio [Mueble Nuevo / Restauración], madera [Flor Morado / Deko] y medidas, generando el enlace a WhatsApp en O(1)."
+                    "Asistente Comercial en WhatsApp",
+                    "Captura servicio [Mueble Nuevo / Restauración], madera [Flor Morado / Deko] y medidas, generando el enlace directo al instante."
                 ),
                 (
                     "Realidad Aumentada WebAR Escala 1:1",
-                    "Integración de <model-viewer> con modelos .glb para proyectar el mueble en el piso real de la sala del cliente sin instalar apps."
+                    "Integración de visor 3D interactivo para proyectar el mueble en el piso real de la sala del cliente sin instalar aplicaciones."
                 ),
                 (
                     "Reducción de Incertidumbre y Tiempos",
-                    "Ahorra más del 60% del tiempo de indagación inicial y elimina dudas sobre el tamaño del mueble antes de fabricar (Johnson, 2021)."
+                    "Ahorra tiempo de indagación inicial y elimina dudas sobre el tamaño del mueble antes de fabricar (Johnson, 2021)."
                 ),
             ],
             "badge": "IA + WEBAR 3D",
             "callout_title": "Flujo Inmersivo",
             "callout_items": [
-                ("Paso 1", "Cliente explora mueble en el catálogo"),
+                ("Paso 1", "Cliente explora el mueble en el catálogo"),
                 ("Paso 2", "Abre visor 3D / AR 1:1 en su celular"),
-                ("Paso 3", "Envía pre-triaje IA a WhatsApp"),
+                ("Paso 3", "Envía cotización directa a WhatsApp"),
             ],
             "notes": (
-                "Aplicamos dos tecnologias emergentes con impacto directo en ventas: primero, un "
-                "asistente de pre-triaje que estructura en tiempo constante O(1) si el cliente busca "
-                "mueble nuevo o restauración junto con sus medidas hacia WhatsApp Business; segundo, "
-                "un visor WebAR 3D que proyecta el mueble a escala real en la sala del comprador."
+                "Aplicamos dos tecnologías emergentes con impacto directo en ventas: primero, un "
+                "asistente de cotización que ayuda al cliente a estructurar si busca mueble nuevo o restauración "
+                "junto con sus medidas hacia WhatsApp Business; segundo, un visor WebAR 3D que proyecta el mueble "
+                "a escala real en la sala del comprador para comprobar sus dimensiones antes de comprar."
             ),
         },
         # SLIDE 8
         {
             "kicker": "Sección 5.9 - Propuesta de Sitio Web y UX/UI",
-            "h1": "El sitio web en GitHub Pages ofrece contraste AAA, botones de 48px y filtrado en O(1)",
+            "h1": "El sitio web en GitHub Pages ofrece contraste AAA, botones táctiles amplios y catálogo ágil",
             "image": os.path.join(screenshots_dir, "desktop-catalogo-1280x800.png"),
             "bullets": [
                 (
                     "Arquitectura Completa de 5 Secciones",
-                    "Inicio, Quiénes Somos, Productos y Servicios (catálogo interactivo), Ubicación con logística aliada y Contacto (Martinez, 2022)."
+                    "Inicio, Quiénes Somos, Catálogo de productos y servicios, Ubicación con logística aliada y Contacto (Martinez, 2022)."
                 ),
                 (
-                    "Accesibilidad Senior y Estética Editorial",
-                    "Paleta #F7F5F0 / #1C1917 (contraste AAA 16.4:1), fuente base de 18px y botones táctiles >= 48x48px (Fernandez, 2022)."
-                ),
+                    "Accesibilidad Senior y Estética Limpia",
+                    "Paleta cálida lino y carbón (contraste AAA 16:1), tipografía base de 18px y botones táctiles amplios de 48 por 48 píxeles (Fernandez, 2022)."),
                 (
                     "Ingeniería Frontend y Pruebas al 100%",
-                    "Índice precomputado Map O(1), renderizado DOM con DocumentFragment O(k), diseño Mobile-First sin overflow-x y 4/4 tests en verde."
+                    "Catálogo modular con filtros instantáneos en memoria, diseño adaptativo sin desbordamiento horizontal y 4 de 4 pruebas aprobadas."
                 ),
             ],
             "badge": "UX/UI ACCESIBLE AAA",
             "callout_title": "Métricas Técnicas Web",
             "callout_items": [
-                ("Contraste", "16.4 : 1 (Cumple WCAG AAA)"),
+                ("Contraste", "16.4 : 1 (Cumple estándar WCAG AAA)"),
                 ("Tipografía", "Base 18px / Botones >= 48x48px"),
-                ("Algoritmia", "Filtro Map O(1) + Fragment O(k)"),
+                ("Rendimiento", "Filtrado instantáneo y 4/4 pruebas"),
             ],
             "notes": (
-                "El prototipo funcional del sitio web fue desplegado con HTML5 semántico, CSS Grid "
-                "Mobile-First y JavaScript modular sin dependencias pesadas. Cumple contraste AAA para "
-                "adultos mayores, filtra el catálogo en tiempo constante O(1) usando un Map "
-                "precomputado y pasa el 100% de las pruebas unitarias en Node.js."
+                "El prototipo funcional del sitio web fue desarrollado con HTML5 semántico, CSS moderno y "
+                "JavaScript nativo sin dependencias externas. Cumple con contraste AAA para adultos mayores, "
+                "permite filtrar el catálogo de forma instantánea sin recargas de página y supera el 100% "
+                "de las pruebas unitarias automatizadas."
             ),
         },
         # SLIDE 9
@@ -1862,7 +1838,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
                     "Consultas con operadores booleanos (AND, OR, site:) en Google Scholar, SciELO y Redalyc, más estudio en CUN Digital y MDN."
                 ),
                 (
-                    "Organizacion en Red y Creación Técnica",
+                    "Organización en Red y Creación Técnica",
                     "Gestión de notas conectadas en Obsidian/Drive y producción de artefactos con Python (docx/pptx), Figma, Git y GitHub Pages."
                 ),
                 (
@@ -1881,7 +1857,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
             "notes": (
                 "En la sección 5.10 estructuro mi Entorno Personal de Aprendizaje en cinco dimensiones: "
                 "búsqueda científica con operadores booleanos en bases arbitradas, estudio en MDN y "
-                "CUN, organizacion en Obsidian y Drive, creación en GitHub y Python, y apoyo de "
+                "CUN, organización en Obsidian y Drive, creación en GitHub y Python, y apoyo de "
                 "Gemini y NotebookLM bajo estricta verificación academica."
             ),
         },
@@ -1909,7 +1885,7 @@ def generate_pptx(output_path, images_dir, screenshots_dir):
             "callout_items": [
                 ("Operación", "3 sedes sincronizadas en la nube"),
                 ("Seguridad", "Tríada CIA + Habeas Data activo"),
-                ("Innovacion", "Triaje IA O(1) + Visor WebAR 3D"),
+                ("Innovación", "Cotizador por WhatsApp + Visor WebAR 3D"),
             ],
             "notes": (
                 "Como conclusión general, demostramos que la tecnología bien seleccionada potencia el "
@@ -1976,6 +1952,7 @@ def run_adversarial_qa(docx_path, pptx_path):
         assert "\u2014" not in notes_txt and "\u2013" not in notes_txt, (
             f"ERROR: Guion largo detectado en notas de Slide {s_idx}"
         )
+        assert "O(1)" not in notes_txt, f"ERROR: Notación O(1) detectada en notas de Slide {s_idx}"
 
         for shape in slide.shapes:
             left = shape.left
@@ -1996,6 +1973,7 @@ def run_adversarial_qa(docx_path, pptx_path):
                 assert "\u2014" not in txt and "\u2013" not in txt, (
                     f"ERROR: Guion largo detectado en texto de Slide {s_idx}"
                 )
+                assert "O(1)" not in txt, f"ERROR: Notación O(1) detectada en texto de Slide {s_idx}"
 
     print("[OK] Geometria PPTX verificada: 0 cuadros desbordados y 10/10 notas de orador presentes.")
 
@@ -2050,16 +2028,20 @@ def run_adversarial_qa(docx_path, pptx_path):
         "02_Gestion_de_Pedidos",
         "03_Catalogo_Fotografico",
         "04_Manuales_y_Formatos",
-        "[INSERTAR CAPTURA 1]",
-        "[INSERTAR CAPTURA 2]",
-        "[INSERTAR CAPTURA 3]",
+        "Nota. Interfaz del sitio web",
+        "Nota. Asistente de cotización",
+        "Nota. Catálogo interactivo",
     ]
     for item in required_citations_and_markers:
         assert item in full_text, f"ERROR: Falta el elemento o cita '{item}' en el DOCX"
 
+    assert "[INSERTAR CAPTURA" not in full_text, "ERROR: Marcadores [INSERTAR CAPTURA detectados en el DOCX"
+    assert "O(1)" not in full_text, "ERROR: Notación algorítmica O(1) detectada en el DOCX"
+    assert "Cormorant" not in full_text, "ERROR: Fuente serif Cormorant detectada en el DOCX"
+
     print(
         "[OK] Contenido DOCX verificado: Secciones 5.1 a 5.11 completas, 10 autores APA 7 citados, "
-        "capturas reales incrustadas y 0 guiones largos."
+        "figuras APA 7 limpias (sin prompts de IA) y 0 guiones largos."
     )
     print("=== AUDITORIA QA FINALIZADA CON EXITO (100% PASS) ===")
 

@@ -269,8 +269,8 @@ export function buildWhatsAppTriageUrl(params = {}) {
   const triageCode = isRestoration ? 'TRIAJE-IA-RESTAURACION' : 'TRIAJE-IA-NUEVO';
 
   const messagePreview =
-    `Hola ${BUSINESS_CONTACT.brandName}, vengo del Asistente Web [${triageCode}]. ` +
-    `Deseo cotizar: ${normalizedService}. ` +
+    `Hola ${BUSINESS_CONTACT.brandName}, deseo cotizar desde la página web: ` +
+    `Servicio: ${normalizedService}. ` +
     `Referencia: ${cleanProduct}. ` +
     `Madera o línea de interés: ${normalizedWood}. ` +
     `Medidas o estado aproximado: ${cleanDimensions}. ` +
