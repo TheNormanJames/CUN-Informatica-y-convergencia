@@ -1,0 +1,21 @@
+name: Pruebas Unitarias Automatizadas
+
+on:
+  push:
+    branches: ["master", "main"]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del repositorio
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js 20
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Ejecutar suite de pruebas unitarias (4/4)
+        run: node --test tests/catalog.test.mjs
