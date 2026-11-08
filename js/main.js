@@ -211,7 +211,7 @@ function initAITriageAssistant() {
     const serviceType = String(formData.get('serviceType') || 'Mueble Nuevo');
     const woodType = String(formData.get('woodType') || 'Flor Morado');
     const dimensions = String(formData.get('dimensions') || '');
-    const productTitle = String(formData.get('productTitle') || 'Cotizacion personalizada desde Asistente IA');
+    const productTitle = String(formData.get('productTitle') || 'Cotización personalizada desde la página web');
 
     const result = buildWhatsAppTriageUrl({
       serviceType,
